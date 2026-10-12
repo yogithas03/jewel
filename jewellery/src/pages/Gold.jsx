@@ -1,4 +1,5 @@
 import ShopPage from "../components/ShopPage";
+import goldJewellery from "../assets/goldjewellery.jpg";
 
 export default function Gold() {
   return (
@@ -6,7 +7,7 @@ export default function Gold() {
       metal="gold"
       title="Gold Jewellery"
       subtitle="Crafted in 18K, 22K and 24K gold — timeless pieces for every occasion."
-      heroImage="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=1200&q=80"
+      heroImage={goldJewellery}
       categoryOptions={["rings", "necklaces", "earrings", "bangles", "chains", "bracelets", "pendants"]}
     />
   );

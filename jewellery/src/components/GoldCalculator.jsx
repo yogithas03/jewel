@@ -11,7 +11,7 @@ export default function GoldCalculator({ rates }) {
   const [result, setResult] = useState(null);
 
   const update = (key, value) => {
-    setForm((prev) => ({ ...prev, [key]: value }));
+    setForm((prev) => ({ ...prev, [key]: value }))
     setResult(null);
   };
 
@@ -31,7 +31,7 @@ export default function GoldCalculator({ rates }) {
     ?? (form.purity === "18K" ? (rates?.gold?.["24k"]?.perGram ?? 0) * 0.75 : 0);
 
   return (
-    <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+    <div className="overflow-hidden rounded-2xl border border-white/20 bg-white/10 shadow-sm backdrop-blur-md">
       <div className="px-6 py-5" style={{ backgroundColor: "#064E3B" }}>
         <h3
           className="text-xl font-semibold"
@@ -47,7 +47,7 @@ export default function GoldCalculator({ rates }) {
       <div className="p-6 space-y-5">
         {/* Purity */}
         <div>
-          <label className="text-xs font-semibold uppercase tracking-wider text-gray-500 block mb-2">
+          <label className="mb-2 block text-xs font-semibold uppercase tracking-wider text-[#FCF1D0]/80">
             Gold Purity
           </label>
           <div className="flex gap-2">
@@ -67,7 +67,7 @@ export default function GoldCalculator({ rates }) {
             ))}
           </div>
           {ratePerGram > 0 && (
-            <p className="text-xs mt-2 text-gray-400">
+            <p className="mt-2 text-xs text-[#FCF1D0]/65">
               Current rate: {formatINR(ratePerGram)} / gram
             </p>
           )}
@@ -75,7 +75,7 @@ export default function GoldCalculator({ rates }) {
 
         {/* Weight */}
         <div>
-          <label className="text-xs font-semibold uppercase tracking-wider text-gray-500 block mb-2">
+          <label className="mb-2 block text-xs font-semibold uppercase tracking-wider text-[#FCF1D0]/80">
             Weight (grams)
           </label>
           <input
@@ -85,13 +85,13 @@ export default function GoldCalculator({ rates }) {
             placeholder="e.g. 5.5"
             value={form.weight}
             onChange={(e) => update("weight", e.target.value)}
-            className="w-full px-4 py-3 rounded-lg border border-gray-200 outline-none text-sm focus:border-[#F5DF92] transition-colors"
+            className="w-full rounded-lg border border-white/25 bg-white/10 px-4 py-3 text-sm text-[#FCF1D0] outline-none transition-colors placeholder:text-[#FCF1D0]/45 focus:border-[#F5DF92]"
           />
         </div>
 
         {/* Making charges */}
         <div>
-          <label className="text-xs font-semibold uppercase tracking-wider text-gray-500 block mb-2">
+          <label className="mb-2 block text-xs font-semibold uppercase tracking-wider text-[#FCF1D0]/80">
             Making Charges: {form.makingCharge}%
           </label>
           <input
@@ -103,7 +103,7 @@ export default function GoldCalculator({ rates }) {
             onChange={(e) => update("makingCharge", e.target.value)}
             className="w-full accent-[#F5DF92]"
           />
-          <div className="flex justify-between text-xs text-gray-400 mt-1">
+          <div className="mt-1 flex justify-between text-xs text-[#FCF1D0]/60">
             <span>5%</span>
             <span>30%</span>
           </div>
@@ -111,7 +111,7 @@ export default function GoldCalculator({ rates }) {
 
         {/* GST */}
         <div>
-          <label className="text-xs font-semibold uppercase tracking-wider text-gray-500 block mb-2">
+          <label className="mb-2 block text-xs font-semibold uppercase tracking-wider text-[#FCF1D0]/80">
             GST: {form.gst}%
           </label>
           <div className="flex gap-2">
@@ -145,11 +145,11 @@ export default function GoldCalculator({ rates }) {
         {result && (
           <div
             className="rounded-xl p-5 space-y-3"
-            style={{ backgroundColor: "#FCF1D0", border: "1px solid rgba(245,223,146,0.3)" }}
+            style={{ backgroundColor: "rgba(255,255,255,0.10)", border: "1px solid rgba(255,255,255,0.2)" }}
           >
             <h4
               className="font-semibold text-base"
-              style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#064E3B" }}
+              style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#FCF1D0" }}
             >
               Price Breakdown
             </h4>
@@ -168,10 +168,10 @@ export default function GoldCalculator({ rates }) {
               { label: `GST (${form.gst}%)`, value: formatINR(result.gst), sub: true },
             ].map((row) => (
               <div key={row.label} className="flex justify-between items-center">
-                <span className={`text-sm ${row.sub ? "text-gray-600" : "font-bold text-[#064E3B]"}`}>
+                <span className={`text-sm ${row.sub ? "text-[#FCF1D0]/75" : "font-bold text-[#FCF1D0]"}`}>
                   {row.label}
                 </span>
-                <span className={`text-sm ${row.sub ? "text-gray-700" : "font-bold text-[#064E3B]"}`}>
+                <span className={`text-sm ${row.sub ? "text-[#FCF1D0]/75" : "font-bold text-[#FCF1D0]"}`}>
                   {row.value}
                 </span>
               </div>
@@ -181,15 +181,15 @@ export default function GoldCalculator({ rates }) {
               className="flex justify-between items-center pt-3 mt-3 border-t"
               style={{ borderColor: "rgba(245,223,146,0.4)" }}
             >
-              <span className="font-bold" style={{ color: "#064E3B" }}>
+              <span className="font-bold" style={{ color: "#FCF1D0" }}>
                 Estimated Total
               </span>
-              <span className="text-lg font-bold" style={{ color: "#064E3B" }}>
+              <span className="text-lg font-bold" style={{ color: "#FCF1D0" }}>
                 {formatINR(result.total)}
               </span>
             </div>
 
-            <p className="text-xs text-gray-500 pt-1">
+            <p className="pt-1 text-xs text-[#FCF1D0]/65">
               * Indicative price only. Actual price may vary based on design and store rates.
             </p>
           </div>

@@ -1,10 +1,20 @@
-﻿export const categories = [
+import bangelBanner from "../assets/bangelbanner.png";
+import classicSolitaireGoldRing from "../assets/Classic Solitaire Gold Ring.jfif";
+import jhumkaGoldEarrings from "../assets/Jhumka Gold Earrings.jfif";
+import goldOmPendant from "../assets/Gold Om Pendant.jfif";
+import classicGoldChainBracelet from "../assets/Classic Gold Chain Bracelet.jfif";
+import necklaceBanner from "../assets/necklace-banner.png";
+import bridalCard from "../assets/bridalcard.jpg";
+import platinumBrand from "../assets/platinumbrand.jfif";
+import goldJewellery from "../assets/goldjewellery.jpg";
+
+export const categories = [
   {
     id: "gold",
     name: "Gold Jewellery",
     slug: "gold",
     route: "/jewellery/gold",
-    image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=80",
+    image: goldJewellery,
     description: "Timeless gold pieces crafted with precision",
     count: 120,
   },
@@ -24,23 +34,23 @@
     route: "/jewellery/silver",
     image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=80",
     description: "Sterling silver designs for modern living",
-    count: 96,
+    count: 10,
   },
   {
     id: "platinum",
     name: "Platinum Jewellery",
     slug: "platinum",
     route: "/jewellery/platinum",
-    image: "https://images.unsplash.com/photo-1612198790700-1b9b5e9d5a4e?w=600&q=80",
+    image: platinumBrand,
     description: "Rare and enduring platinum collections",
-    count: 42,
+    count: 12,
   },
   {
     id: "bridal",
     name: "Bridal Jewellery",
     slug: "bridal",
     route: "/jewellery/bridal",
-    image: "https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=600&q=80",
+    image: bridalCard,
     description: "Make your special day unforgettable",
     count: 64,
   },
@@ -49,36 +59,36 @@
     name: "Rings",
     slug: "rings",
     route: "/category/rings",
-    image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&q=80",
+    image: classicSolitaireGoldRing,
     description: "Rings for every occasion and style",
-    count: 78,
+    count: 10,
   },
   {
     id: "necklaces",
     name: "Necklaces",
     slug: "necklaces",
     route: "/category/necklaces",
-    image: "https://images.unsplash.com/photo-1573408301185-9519f94c9cdf?w=600&q=80",
+    image: necklaceBanner,
     description: "Statement necklaces and delicate chains",
-    count: 65,
+    count: 12,
   },
   {
     id: "earrings",
     name: "Earrings",
     slug: "earrings",
     route: "/category/earrings",
-    image: "https://images.unsplash.com/photo-1630019852942-f89202989a59?w=600&q=80",
+    image: jhumkaGoldEarrings,
     description: "From studs to chandeliers",
-    count: 92,
+    count: 10,
   },
   {
     id: "bangles",
     name: "Bangles",
     slug: "bangles",
     route: "/category/bangles",
-    image: "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=600&q=80",
+    image: bangelBanner,
     description: "Traditional and contemporary bangles",
-    count: 57,
+    count: 10,
   },
   {
     id: "chains",
@@ -94,18 +104,18 @@
     name: "Bracelets",
     slug: "bracelets",
     route: "/category/bracelets",
-    image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=80",
+    image: classicGoldChainBracelet,
     description: "Elegant bracelets for every wrist",
-    count: 43,
+    count: 10,
   },
   {
     id: "pendants",
     name: "Pendants",
     slug: "pendants",
     route: "/category/pendants",
-    image: "https://images.unsplash.com/photo-1573408301185-9519f94c9cdf?w=600&q=80",
+    image: goldOmPendant,
     description: "Meaningful pendants and charms",
-    count: 39,
+    count: 10,
   },
 ];
 

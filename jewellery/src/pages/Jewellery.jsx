@@ -4,12 +4,15 @@ import CategoryCard from "../components/CategoryCard";
 import ProductCard from "../components/ProductCard";
 import ShopPage from "../components/ShopPage";
 import { products } from "../data/products";
+import bridalCard from "../assets/bridalcard.jpg";
+import platinumBrand from "../assets/platinumbrand.jfif";
+import goldJewellery from "../assets/goldjewellery.jpg";
 
 const metalMeta = {
   gold: {
     title: "Gold Jewellery",
     subtitle: "Timeless gold crafted in 18K, 22K and 24K purity.",
-    hero: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=1200&q=80",
+    hero: goldJewellery,
   },
   diamond: {
     title: "Diamond Jewellery",
@@ -24,7 +27,7 @@ const metalMeta = {
   platinum: {
     title: "Platinum Jewellery",
     subtitle: "Rare and enduring — the ultimate luxury.",
-    hero: "https://images.unsplash.com/photo-1612198790700-1b9b5e9d5a4e?w=1200&q=80",
+    hero: platinumBrand,
   },
 };
 
@@ -53,7 +56,7 @@ export default function Jewellery() {
         <PageHero
           title="Bridal Jewellery"
           subtitle="Every bride deserves to shine — curated bridal sets, just for you."
-          image="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=1200&q=80"
+          image={bridalCard}
         />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12">
           {bridalProducts.length === 0 ? (

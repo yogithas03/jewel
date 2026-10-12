@@ -1,4 +1,13 @@
 import { formatINR } from "../services/metalRateService";
+import "./GoldCoinConfetti.css";
+
+const goldCoins = [
+  { left: "12%", delay: "0s", duration: "5.8s" },
+  { left: "34%", delay: "-3.2s", duration: "6.5s" },
+  { left: "58%", delay: "-1.1s", duration: "5.2s" },
+  { left: "81%", delay: "-4.4s", duration: "6.1s" },
+  { left: "94%", delay: "-2.2s", duration: "5.6s" },
+];
 
 export default function GoldRateCard({
   label,
@@ -7,42 +16,59 @@ export default function GoldRateCard({
   updatedAt,
 }) {
   return (
-    <article className="overflow-hidden rounded-xl border border-[#F5DF92]/60 bg-white/95 shadow-[0_6px_18px_rgba(6,78,59,0.08)] transition-shadow hover:shadow-[0_10px_26px_rgba(6,78,59,0.14)]">
-      <div className="flex items-center justify-between gap-3 px-4 pb-3 pt-4 sm:px-5">
+    <article className="relative isolate overflow-hidden rounded-xl border border-white/25 bg-white/10 shadow-[0_6px_18px_rgba(0,0,0,0.12)] backdrop-blur-md transition-shadow hover:bg-white/15 hover:shadow-[0_10px_26px_rgba(0,0,0,0.18)]">
+      {["Gold", "Silver", "Platinum"].includes(label) && (
+        <span className="metal-coin-confetti" aria-hidden="true">
+          {goldCoins.map((coin, index) => (
+            <span
+              key={index}
+              className={`metal-coin ${label.toLowerCase()}-coin`}
+              style={{
+                "--coin-left": coin.left,
+                "--coin-delay": coin.delay,
+                "--coin-duration": coin.duration,
+              }}
+            >
+              ₹
+            </span>
+          ))}
+        </span>
+      )}
+      <div className="relative z-10 flex items-center justify-between gap-3 px-4 pb-3 pt-4 sm:px-5">
         <div className="flex min-w-0 items-center gap-3">
           <MetalIcon metal={label} />
           <div className="min-w-0">
             <h3
-              className="text-lg font-semibold leading-tight text-[#064E3B]"
+              className="text-lg font-semibold leading-tight text-[#FCF1D0]"
               style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
             >
               {label}
             </h3>
-            <p className="mt-0.5 truncate text-[11px] text-[#064E3B]/65">{purity}</p>
+            <p className="mt-0.5 truncate text-[11px] text-[#FCF1D0]/75">{purity}</p>
           </div>
         </div>
         {label === "Gold" && (
-          <div className="shrink-0 rounded-md bg-[#FCF1D0] px-2 py-1 text-[9px] font-semibold leading-4 text-[#064E3B]">
+          <div className="shrink-0 rounded-md bg-[#F5DF92]/20 px-2 py-1 text-[9px] font-semibold leading-4 text-[#FCF1D0]">
             24K · 99.9% pure<br />22K · 91.6% pure
           </div>
         )}
       </div>
 
-      <div className="px-4 pb-3 sm:px-5">
+      <div className="relative z-10 px-4 pb-3 sm:px-5">
         {rates.map(({ label: rateLabel, value }) => (
           <div
             key={rateLabel}
-            className="flex items-center justify-between gap-3 border-t border-dashed border-[#064E3B]/10 py-2"
+            className="flex items-center justify-between gap-3 border-t border-dashed border-white/20 py-2"
           >
-            <span className="text-xs text-[#064E3B]/75">{rateLabel}</span>
-            <span className="whitespace-nowrap text-sm font-bold text-[#064E3B]">
+            <span className="text-xs text-[#FCF1D0]/80">{rateLabel}</span>
+            <span className="whitespace-nowrap text-sm font-bold text-[#FCF1D0]">
               {typeof value === "number" ? formatINR(value) : "—"}
             </span>
           </div>
         ))}
       </div>
 
-      <div className="flex items-center justify-between border-t border-[#F5DF92]/20 bg-[#FCF1D0]/65 px-4 py-2 text-[9px] text-[#064E3B]/70 sm:px-5">
+      <div className="relative z-10 flex items-center justify-between border-t border-white/15 bg-white/5 px-4 py-2 text-[9px] text-[#FCF1D0]/75 sm:px-5">
         <span className="inline-flex items-center gap-1.5">
           <span className="h-1.5 w-1.5 rounded-full bg-[#0F766E]" />
           Live market rate · INR
@@ -71,9 +97,9 @@ function MetalIcon({ metal }) {
 
   return (
     <svg aria-hidden="true" viewBox="0 0 48 40" className="h-10 w-12 shrink-0">
-      <path d="M6 25 14 9h20l9 16-9 10H14L6 25Z" fill={fill} stroke="#064E3B" strokeOpacity=".16" />
+      <path d="M6 25 14 9h20l9 16-9 10H14L6 25Z" fill={fill} stroke="#FCF1D0" strokeOpacity=".35" />
       <path d="m14 9 10 8 10-8M6 25l18-8 19 8M14 35l10-18 10 18" fill={highlight} fillOpacity=".72" />
-      <path d="m6 25 18-8 19 8M14 35l10-18 10 18" fill="none" stroke="#064E3B" strokeOpacity=".18" />
+      <path d="m6 25 18-8 19 8M14 35l10-18 10 18" fill="none" stroke="#FCF1D0" strokeOpacity=".3" />
     </svg>
   );
 }

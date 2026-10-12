@@ -40,6 +40,40 @@ app.all("/api/metals/rates", (_request, response) => {
     message: "Method not allowed. Use GET /api/metals/rates.",
   });
 });
+app.use(express.json());
+
+const ordersStore = [];
+
+app.post("/api/orders", (request, response) => {
+  const { customer, delivery, payment, items, pricing } = request.body || {};
+  if (!items || !items.length || !customer || !delivery) {
+    return response.status(400).json({ success: false, message: "Invalid order data. Please check required fields." });
+  }
+  const timestamp = Date.now().toString().slice(-6);
+  const randomSuffix = Math.floor(1000 + Math.random() * 9000);
+  const orderId = `DK-ORD-${timestamp}-${randomSuffix}`;
+  const order = {
+    orderId,
+    createdAt: new Date().toISOString(),
+    customer,
+    delivery,
+    payment,
+    items,
+    pricing,
+    status: payment?.method === "cod" ? "Order Confirmed (Cash on Delivery)" : "Order Confirmed & Payment Received",
+  };
+  ordersStore.push(order);
+  return response.status(201).json({ success: true, order });
+});
+
+app.get("/api/orders/:id", (request, response) => {
+  const order = ordersStore.find((o) => o.orderId === request.params.id);
+  if (!order) {
+    return response.status(404).json({ success: false, message: "Order not found." });
+  }
+  return response.json({ success: true, order });
+});
+
 app.all("/api/{*path}", (_request, response) => {
   response.status(404).json({ success: false, message: "API endpoint not found." });
 });

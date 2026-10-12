@@ -1,4 +1,5 @@
 import ShopPage from "../components/ShopPage";
+import platinumBrand from "../assets/platinumbrand.jfif";
 
 export default function Platinum() {
   return (
@@ -6,8 +7,8 @@ export default function Platinum() {
       metal="platinum"
       title="Platinum Jewellery"
       subtitle="Rare. Enduring. Extraordinary. Discover our platinum collection."
-      heroImage="https://images.unsplash.com/photo-1612198790700-1b9b5e9d5a4e?w=1200&q=80"
-      categoryOptions={["rings", "chains", "bracelets", "earrings"]}
+      heroImage={platinumBrand}
+      categoryOptions={["rings", "necklaces", "chains", "bracelets", "bangles", "earrings", "pendants"]}
     />
   );
 }

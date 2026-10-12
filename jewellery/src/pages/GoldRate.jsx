@@ -62,7 +62,7 @@ export default function GoldRate() {
   }).format(updatedAtDate) : "";
 
   return (
-    <div className="min-h-screen bg-[#FCF1D0] pt-20 lg:pt-24">
+    <div className="min-h-screen bg-[#064E3B] pt-20 lg:pt-24">
       <header className="relative isolate flex h-[260px] w-full items-center justify-center overflow-hidden bg-[#064E3B] px-4 py-5 text-center">
         {goldHeroImage && (
           <img
@@ -147,7 +147,8 @@ export default function GoldRate() {
       <main
         className="relative mx-auto max-w-7xl overflow-hidden px-4 py-6 sm:px-6 sm:py-8"
         style={{
-          backgroundImage: "radial-gradient(ellipse at 8% 20%, rgba(245,223,146,.07), transparent 26%), radial-gradient(ellipse at 92% 20%, rgba(15,118,110,.06), transparent 27%)",
+          backgroundColor: "#064E3B",
+          backgroundImage: "radial-gradient(ellipse at 8% 20%, rgba(245,223,146,.10), transparent 26%), radial-gradient(ellipse at 92% 20%, rgba(15,118,110,.18), transparent 27%)",
         }}
       >
         {error && (
@@ -177,15 +178,15 @@ export default function GoldRate() {
                   <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-[#F5DF92]">India · INR</p>
                   <h2
                     id="rates-heading"
-                    className="mt-0.5 text-2xl font-semibold text-[#064E3B] sm:text-3xl"
+                    className="mt-0.5 text-2xl font-semibold text-[#FCF1D0] sm:text-3xl"
                     style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
                   >
                     Today&apos;s Precious Metal Rates
                   </h2>
-                  <p className="mt-1 text-xs text-[#064E3B]/65">Live market rates for Gold, Silver and Platinum · Auto-refreshes every 15 minutes</p>
+                  <p className="mt-1 text-xs text-[#FCF1D0]/75">Live market rates for Gold, Silver and Platinum · Auto-refreshes every 15 minutes</p>
                 </div>
                 <div aria-hidden="true" className="hidden h-px w-24 bg-gradient-to-r from-transparent via-[#F5DF92] to-transparent sm:block" />
-                {refreshing && <span className="text-xs text-[#064E3B]/60">Updating…</span>}
+                {refreshing && <span className="text-xs text-[#FCF1D0]/70">Updating…</span>}
               </div>
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 <GoldRateCard
@@ -221,14 +222,14 @@ export default function GoldRate() {
               </div>
             </section>
 
-            <p className="mt-3 rounded-full border border-[#F5DF92]/30 bg-[#F7E9C5] px-4 py-2 text-center text-[9px] leading-4 text-[#064E3B]/75">
+            <p className="mt-3 rounded-full border border-[#F5DF92]/30 bg-white/10 px-4 py-2 text-center text-[9px] leading-4 text-[#FCF1D0]/80 backdrop-blur-sm">
               Rates shown are indicative live market rates. Final jewellery prices may vary based on GST, making charges, wastage and applicable jeweller charges.
             </p>
 
             <section className="mt-12" aria-labelledby="calculator-heading">
               <h2
                 id="calculator-heading"
-                className="mb-5 text-2xl font-semibold text-[#064E3B]"
+                className="mb-5 text-2xl font-semibold text-[#FCF1D0]"
                 style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
               >
                 Gold Price Calculator
@@ -243,12 +244,12 @@ export default function GoldRate() {
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#F5DF92]">A guide to diamond value</p>
                 <h2
                   id="diamond-guide-heading"
-                  className="mt-1 text-2xl font-semibold text-[#064E3B] sm:text-3xl"
+                  className="mt-1 text-2xl font-semibold text-[#FCF1D0] sm:text-3xl"
                   style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
                 >
                   Understanding the 4Cs
                 </h2>
-                <p className="mt-2 max-w-3xl text-sm leading-6 text-[#064E3B]/65">
+                <p className="mt-2 max-w-3xl text-sm leading-6 text-[#FCF1D0]/75">
                   Diamonds do not have one universal daily spot rate. A quote is based on the individual stone and its grading report.
                 </p>
               </div>
@@ -274,8 +275,8 @@ export default function GoldRate() {
                   scale="Compare weight alongside the other 3Cs"
                 />
               </div>
-              <div className="mt-5 flex flex-col gap-3 rounded-xl border border-[#F5DF92]/40 bg-[#FCF1D0] p-5 sm:flex-row sm:items-center sm:justify-between">
-                <p className="text-sm leading-6 text-[#064E3B]/75">
+              <div className="mt-5 flex flex-col gap-3 rounded-xl border border-[#F5DF92]/35 bg-white/10 p-5 backdrop-blur-sm sm:flex-row sm:items-center sm:justify-between">
+                <p className="text-sm leading-6 text-[#FCF1D0]/85">
                   For an accurate diamond quote, share the stone&apos;s cut, colour, clarity, carat weight and certification.
                 </p>
                 <Link
@@ -289,7 +290,7 @@ export default function GoldRate() {
 
           </>
         ) : !refreshing ? (
-          <div className="rounded-2xl border border-[#F5DF92]/40 bg-[#FCF1D0] p-8 text-center text-sm text-[#064E3B]/70">
+          <div className="rounded-2xl border border-[#F5DF92]/40 bg-white/10 p-8 text-center text-sm text-[#FCF1D0]/80 backdrop-blur-sm">
             Today&apos;s live rates are unavailable. Please try again.
           </div>
         ) : null}
@@ -300,15 +301,15 @@ export default function GoldRate() {
 
 function DiamondFactor({ name, detail, scale }) {
   return (
-    <article className="rounded-xl border border-[#F5DF92]/30 bg-white p-5 shadow-sm">
+    <article className="rounded-xl border border-white/20 bg-white/10 p-5 shadow-sm backdrop-blur-sm">
       <h3
-        className="text-lg font-semibold text-[#064E3B]"
+        className="text-lg font-semibold text-[#FCF1D0]"
         style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
       >
         {name}
       </h3>
-      <p className="mt-2 text-sm leading-6 text-[#064E3B]/70">{detail}</p>
-      <p className="mt-4 border-t border-[#F5DF92]/20 pt-3 text-xs font-medium text-[#064E3B]/60">{scale}</p>
+      <p className="mt-2 text-sm leading-6 text-[#FCF1D0]/75">{detail}</p>
+      <p className="mt-4 border-t border-white/15 pt-3 text-xs font-medium text-[#FCF1D0]/65">{scale}</p>
     </article>
   );
 }
@@ -319,7 +320,7 @@ function RateSkeleton() {
       <p className="mb-4 text-center text-sm text-[#064E3B]/65">Fetching today&apos;s live rates…</p>
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {Array.from({ length: 3 }, (_, index) => (
-          <div key={index} className="animate-pulse overflow-hidden rounded-xl border border-[#F5DF92]/40 bg-white/90 p-4">
+          <div key={index} className="animate-pulse overflow-hidden rounded-xl border border-white/20 bg-white/10 p-4">
             <div className="mb-4 flex items-center gap-3">
               <div className="h-10 w-12 rounded-lg bg-[#064E3B]/10" />
               <div className="space-y-2">

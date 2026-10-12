@@ -23,7 +23,7 @@ export default function Wishlist() {
   if (wishlistItems.length === 0) {
     return (
       <div className="pt-20 lg:pt-24 min-h-screen flex flex-col items-center justify-center text-center px-4">
-        <div className="text-6xl mb-6" style={{ color: "#F5DF92" }}>♡</div>
+        <div className="text-6xl mb-6" style={{ color: "#E11D48" }}>♡</div>
         <h2
           className="text-2xl sm:text-3xl font-semibold mb-3"
           style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#064E3B" }}
@@ -73,7 +73,7 @@ export default function Wishlist() {
                   className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center hover:scale-110 transition-all"
                   aria-label="Remove from wishlist"
                 >
-                  <svg className="w-4 h-4 fill-[#F5DF92]" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 fill-[#E11D48]" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
                 </button>

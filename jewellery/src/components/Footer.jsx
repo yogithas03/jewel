@@ -1,210 +1,172 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "motion/react";
+import "./Footer.css";
 
-const footerLinks = {
-  company: [
-    { label: "About Us", to: "/about" },
-    { label: "Our Story", to: "/about#story" },
-    { label: "Services", to: "/services" },
-    { label: "Contact Us", to: "/contact" },
-  ],
-  shop: [
-    { label: "Gold Jewellery", to: "/shop/gold" },
-    { label: "Diamond Jewellery", to: "/shop/diamond" },
-    { label: "Silver Jewellery", to: "/shop/silver" },
-    { label: "Platinum Jewellery", to: "/shop/platinum" },
-    { label: "Bridal Collection", to: "/jewellery/bridal" },
-  ],
-  customer: [
-    { label: "Shipping Policy", to: "/shipping" },
-    { label: "Returns & Exchanges", to: "/returns" },
-    { label: "Jewellery Care", to: "/care" },
-    { label: "FAQs", to: "/faqs" },
-    { label: "Today's Gold Rate", to: "/gold-rate" },
-  ],
-  legal: [
-    { label: "Privacy Policy", to: "/privacy" },
-    { label: "Terms & Conditions", to: "/terms" },
-    { label: "Refund Policy", to: "/refund" },
-  ],
+const STORE_ADDRESS =
+  "No.80 & 81, Velachery Main Rd, Devi Karumariamman Nagar, Pallikaranai, Chennai, Tamil Nadu 600100, India";
+
+const DIRECTIONS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(STORE_ADDRESS)}`;
+
+const footerColumns = [
+  {
+    heading: "Explore",
+    links: [
+      { label: "Home", to: "/" },
+      { label: "Jewellery", to: "/jewellery" },
+      { label: "Gold Jewellery", to: "/shop/gold" },
+      { label: "Diamond Jewellery", to: "/shop/diamond" },
+      { label: "Silver Jewellery", to: "/shop/silver" },
+      { label: "New Arrivals", to: "/jewellery?sort=newest" },
+    ],
+  },
+  {
+    heading: "Customer Care",
+    links: [
+      { label: "Contact Us", to: "/contact" },
+      { label: "FAQs", to: "/faqs" },
+      { label: "Shipping & Delivery", to: "/shipping" },
+      { label: "Returns & Exchanges", to: "/returns" },
+      { label: "Jewellery Care", to: "/care" },
+    ],
+  },
+];
+
+const legalLinks = [
+  { label: "Privacy Policy", to: "/privacy" },
+  { label: "Terms & Conditions", to: "/terms" },
+  { label: "Shipping Policy", to: "/shipping" },
+];
+
+const revealVariants = {
+  hidden: { opacity: 0, y: 12 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1], staggerChildren: 0.1 },
+  },
 };
 
-export default function Footer() {
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
+const itemVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } },
+};
 
-  const handleSubscribe = (e) => {
-    e.preventDefault();
-    if (email.includes("@")) {
-      setSubscribed(true);
-      setEmail("");
-    }
-  };
+function SocialLink({ name, children }) {
+  return (
+    <a
+      className="footer-social"
+      href={`https://www.${name}.com/`}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={`DIKSHI JEWELLERY on ${name}`}
+    >
+      {children}
+    </a>
+  );
+}
+
+export default function Footer() {
+  const footerRef = useRef(null);
+  const reduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: footerRef,
+    offset: ["start end", "end end"],
+  });
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
+  const opacity = useTransform(smoothProgress, [0, 0.45, 1], [0.45, 0.8, 1]);
+  const scale = useTransform(smoothProgress, [0, 1], [0.96, 1]);
 
   return (
-    <footer style={{ backgroundColor: "#064E3B" }}>
-      {/* Newsletter strip */}
-      <div
-        className="py-10 px-4"
-        style={{ backgroundColor: "rgba(245,223,146,0.1)", borderTop: "1px solid rgba(245,223,146,0.2)", borderBottom: "1px solid rgba(245,223,146,0.2)" }}
+    <motion.footer
+      ref={footerRef}
+      className="site-footer"
+      style={reduceMotion ? undefined : { opacity, scale }}
+    >
+      <motion.div
+        className="footer-inner"
+        variants={revealVariants}
+        initial={reduceMotion ? false : "hidden"}
+        whileInView={reduceMotion ? undefined : "visible"}
+        viewport={{ once: true, amount: 0.12 }}
       >
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
-            <h3 className="text-xl font-semibold" style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#FCF1D0" }}>
-              Stay in the Loop
-            </h3>
-            <p className="text-sm mt-1" style={{ color: "rgba(252,241,208,0.65)" }}>
-              Get exclusive offers, new arrivals and jewellery insights.
-            </p>
-          </div>
-          <form onSubmit={handleSubscribe} className="flex w-full max-w-md gap-0">
-            {subscribed ? (
-              <p className="text-sm py-3" style={{ color: "#F5DF92" }}>Thank you for subscribing! ✓</p>
-            ) : (
-              <>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Your email address"
-                  className="flex-1 px-4 py-3 text-sm outline-none rounded-l-lg"
-                  style={{ backgroundColor: "rgba(255,255,255,0.08)", color: "#FCF1D0", border: "1px solid rgba(245,223,146,0.3)" }}
-                />
-                <button
-                  type="submit"
-                  className="px-6 py-3 text-sm font-semibold tracking-wider rounded-r-lg transition-opacity hover:opacity-90"
-                  style={{ backgroundColor: "#F5DF92", color: "#064E3B" }}
-                >
-                  SUBSCRIBE
-                </button>
-              </>
-            )}
-          </form>
-        </div>
-      </div>
-
-      {/* Main footer */}
-      <div className="max-w-7xl mx-auto px-4 py-14 sm:px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
-          {/* Brand column */}
-          <div className="lg:col-span-2">
-            <Link to="/" className="inline-block mb-4">
-              <div>
-                <span
-                  className="text-2xl font-bold tracking-wider block"
-                  style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#FCF1D0" }}
-                >
-                  DIKSHI
-                </span>
-                <span className="gold-shimmer text-xs tracking-[0.35em] font-light" style={{ color: "#D79B01" }}>
-                  JEWELLERY
-                </span>
-              </div>
+        <div className="footer-grid">
+          <motion.section className="footer-brand" variants={itemVariants} aria-label="About DIKSHI JEWELLERY">
+            <Link to="/" className="footer-logo" aria-label="DIKSHI JEWELLERY home">
+              <span className="footer-logo-name">DIKSHI</span>
+              <span className="footer-logo-subtitle">JEWELLERY</span>
             </Link>
-            <p className="text-sm leading-relaxed max-w-xs mt-3" style={{ color: "rgba(252,241,208,0.65)" }}>
-              Crafting timeless jewellery since 1992. Every piece tells a story of elegance, craftsmanship, and enduring beauty.
+            <p className="footer-description">
+              Crafting timeless elegance with jewellery made to celebrate every moment.
             </p>
-            <div className="flex gap-3 mt-6">
-              {[
-                { label: "Facebook", icon: "f" },
-                { label: "Instagram", icon: "ig" },
-                { label: "Pinterest", icon: "p" },
-                { label: "YouTube", icon: "yt" },
-              ].map((s) => (
-                <a
-                  key={s.label}
-                  href="#"
-                  aria-label={s.label}
-                  className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold transition-all hover:scale-110"
-                  style={{ border: "1px solid rgba(245,223,146,0.4)", color: "#F5DF92" }}
-                >
-                  {s.icon}
-                </a>
-              ))}
+            <div className="footer-socials" aria-label="Social media">
+              <SocialLink name="instagram">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle className="footer-social-dot" cx="17.7" cy="6.5" r="1" />
+                </svg>
+              </SocialLink>
+              <SocialLink name="facebook">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M14.2 20v-7.3h2.5l.4-3h-2.9V7.8c0-.9.3-1.5 1.5-1.5h1.6V3.6c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H8.5v3h2.6V20z" />
+                </svg>
+              </SocialLink>
+              <SocialLink name="pinterest">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 3.5a8.5 8.5 0 0 0-3.1 16.4c0-.7 0-1.5.2-2.2l1.1-4.6s-.3-.6-.3-1.5c0-1.4.8-2.4 1.8-2.4.9 0 1.3.7 1.3 1.5 0 .9-.6 2.3-.9 3.6-.3 1.1.5 2 1.6 2 1.9 0 3.3-2 3.3-4.9 0-2.5-1.8-4.2-4.3-4.2-2.9 0-4.6 2.2-4.6 4.5 0 .9.3 1.9.8 2.4.1.2.2.3.1.5l-.3 1c0 .2-.2.3-.4.2-1.4-.6-2.2-2.4-2.2-3.9 0-3.2 2.3-6.1 6.7-6.1 3.5 0 6.2 2.5 6.2 5.8 0 3.5-2.2 6.4-5.2 6.4-1 0-2-.6-2.4-1.2l-.7 2.7c-.3 1-.9 1.9-1.3 2.6A8.5 8.5 0 1 0 12 3.5z" />
+                </svg>
+              </SocialLink>
             </div>
-            {/* Trust badges */}
-            <div className="mt-6 flex flex-wrap gap-3">
-              {["BIS Hallmarked", "GIA Certified", "IGI Certified"].map((b) => (
-                <span
-                  key={b}
-                  className="text-xs px-3 py-1 rounded-full"
-                  style={{ border: "1px solid rgba(245,223,146,0.4)", color: "#F5DF92" }}
-                >
-                  ✓ {b}
-                </span>
-              ))}
-            </div>
-          </div>
+          </motion.section>
 
-          {/* Links columns */}
-          {[
-            { heading: "Company", links: footerLinks.company },
-            { heading: "Shop", links: footerLinks.shop },
-            { heading: "Customer Service", links: footerLinks.customer },
-          ].map((col) => (
-            <div key={col.heading}>
-              <h4
-                className="text-xs font-semibold tracking-widest mb-5 uppercase"
-                style={{ color: "#F5DF92" }}
-              >
-                {col.heading}
-              </h4>
-              <ul className="space-y-3">
-                {col.links.map((link) => (
+          {footerColumns.map((column) => (
+            <motion.nav
+              key={column.heading}
+              className="footer-column"
+              variants={itemVariants}
+              aria-label={column.heading}
+            >
+              <h2 className="footer-heading">{column.heading}</h2>
+              <ul>
+                {column.links.map((link) => (
                   <li key={link.label}>
-                    <Link
-                      to={link.to}
-                      className="text-sm transition-colors hover:text-[#F5DF92]"
-                      style={{ color: "rgba(252,241,208,0.70)" }}
-                    >
-                      {link.label}
-                    </Link>
+                    <Link className="footer-link" to={link.to}>{link.label}</Link>
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.nav>
           ))}
+
+          <motion.section className="footer-column footer-contact" variants={itemVariants}>
+            <h2 className="footer-heading">Contact</h2>
+            <address>
+              <p>{STORE_ADDRESS}</p>
+              <a className="footer-link" href="tel:+917894567880">+91 78945 67880</a>
+              <a className="footer-link" href="tel:+919993456689">+91 99934 56689</a>
+              <a className="footer-link" href="mailto:hello@dikshijewellery.com">hello@dikshijewellery.com</a>
+              <a className="footer-link" href="mailto:support@dikshijewellery.com">support@dikshijewellery.com</a>
+              <p>Mon–Sat: 10:00 AM–8:00 PM<br />Sunday: 11:00 AM–6:00 PM</p>
+              <a className="footer-link footer-directions" href={DIRECTIONS_URL} target="_blank" rel="noreferrer">
+                Get Directions <span aria-hidden="true">↗</span>
+              </a>
+            </address>
+          </motion.section>
         </div>
 
-        {/* Contact info */}
-        <div
-          className="mt-12 pt-8 border-t grid grid-cols-1 sm:grid-cols-3 gap-6"
-          style={{ borderColor: "rgba(245,223,146,0.2)" }}
-        >
-          {[
-            { icon: "📍", label: "No.80 & 81, Velachery Main Rd, Devi Karumariamman Nagar, Pallikaranai, Chennai, Tamil Nadu 600100, India" },
-            { icon: "📞", label: "+91 78945 67880" },
-            { icon: "✉️", label: "hello@dikshijewellery.com" },
-          ].map((item) => (
-            <div key={item.label} className="flex items-start gap-3">
-              <span className="text-base mt-0.5">{item.icon}</span>
-              <p className="text-sm" style={{ color: "rgba(252,241,208,0.70)" }}>{item.label}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Bottom bar */}
-        <div
-          className="mt-8 pt-6 border-t flex flex-col sm:flex-row items-center justify-between gap-4"
-          style={{ borderColor: "rgba(245,223,146,0.15)" }}
-        >
-          <p className="text-xs" style={{ color: "rgba(252,241,208,0.45)" }}>
-            © {new Date().getFullYear()} Dikshi Jewellery. All rights reserved.
-          </p>
-          <div className="flex gap-4">
-            {footerLinks.legal.map((link) => (
-              <Link
-                key={link.label}
-                to={link.to}
-                className="text-xs hover:text-[#F5DF92] transition-colors"
-                style={{ color: "rgba(252,241,208,0.45)" }}
-              >
-                {link.label}
-              </Link>
+        <div className="footer-bottom">
+          <p>Copyright © 2026 DIKSHI JEWELLERY. All rights reserved.</p>
+          <nav className="footer-legal" aria-label="Legal">
+            {legalLinks.map((link) => (
+              <Link key={link.label} className="footer-link" to={link.to}>{link.label}</Link>
             ))}
-          </div>
+          </nav>
         </div>
-      </div>
-    </footer>
+      </motion.div>
+    </motion.footer>
   );
 }

@@ -5,6 +5,7 @@ import ProductCard from "../components/ProductCard";
 import TextLoop from "../components/TextLoop";
 import { categories } from "../data/categories";
 import { getBestSellers, getNewArrivals, getTrendingProducts, getBridalProducts } from "../data/products";
+import bridalCard from "../assets/bridalcard.jpg";
 
 const SectionHeader = ({ eyebrow, title, subtitle, center = false }) => (
   <div className={`mb-10 ${center ? "text-center" : ""}`}>
@@ -172,11 +173,11 @@ export default function Home() {
             </Link>
           </div>
           <div className="relative">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden">
+            <div className="aspect-square rounded-2xl overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=800&q=80"
+                src={bridalCard}
                 alt="Bridal jewellery collection"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-[center_25%]"
               />
             </div>
             <div

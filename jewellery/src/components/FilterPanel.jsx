@@ -6,12 +6,18 @@ export default function FilterPanel({ filters, setFilters, metal }) {
     diamond: ["All", "18K", "14K"],
   };
 
-  const occasionOptions = ["All", "Casual", "Formal", "Bridal", "Festive", "Wedding", "Engagement", "Religious"];
+  const occasionOptions = ["All", "Casual", "Formal", "Bridal", "Festive", "Wedding", "Engagement", "Religious", "Reception", "Party", "Office", "Everyday"];
   const genderOptions = ["All", "Women", "Men", "Unisex"];
 
   const purities = purityOptions[metal] || purityOptions.gold;
 
-  const update = (key, value) => setFilters((prev) => ({ ...prev, [key]: value }));
+  const update = (key, value) => {
+    if (key === "gender" || key === "for") {
+      setFilters((prev) => ({ ...prev, gender: value, for: value }));
+    } else {
+      setFilters((prev) => ({ ...prev, [key]: value }));
+    }
+  };
 
   const FilterSection = ({ title, children }) => (
     <div className="mb-6">
@@ -29,7 +35,7 @@ export default function FilterPanel({ filters, setFilters, metal }) {
           Filters
         </h3>
         <button
-          onClick={() => setFilters({ purity: "All", minPrice: "", maxPrice: "", occasion: "All", gender: "All", sort: "popular" })}
+          onClick={() => setFilters({ purity: "All", minPrice: "", maxPrice: "", occasion: "All", gender: "All", for: "All", sort: "popular" })}
           className="text-xs underline"
           style={{ color: "#F5DF92" }}
         >
@@ -39,7 +45,7 @@ export default function FilterPanel({ filters, setFilters, metal }) {
 
       {/* Price range */}
       <FilterSection title="Price Range">
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           <input
             type="number"
             placeholder="Min ₹"
@@ -99,14 +105,14 @@ export default function FilterPanel({ filters, setFilters, metal }) {
 
       {/* Gender */}
       <FilterSection title="For">
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           {genderOptions.map((g) => (
             <button
               key={g}
               onClick={() => update("gender", g)}
               className="px-3 py-1.5 text-xs rounded-full border transition-all"
               style={
-                filters.gender === g
+                (filters.gender === g || filters.for === g)
                   ? { backgroundColor: "#064E3B", color: "#FCF1D0", borderColor: "#064E3B" }
                   : { backgroundColor: "white", color: "#064E3B", borderColor: "#e5e7eb" }
               }

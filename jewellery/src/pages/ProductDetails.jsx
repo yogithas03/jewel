@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { getProductById, products } from "../data/products";
 import { useCart } from "../context/CartContext";
 import { useWishlist } from "../context/WishlistContext";
+import HeartConfetti from "../components/HeartConfetti";
 import ProductCard from "../components/ProductCard";
 import Toast from "../components/Toast";
 
@@ -10,8 +11,9 @@ const TAB_CONTENT = {
   details: (p) => (
     <div className="space-y-3 text-sm text-gray-600 leading-relaxed">
       <p><span className="font-semibold text-[#064E3B]">Metal:</span> {p.metal?.charAt(0).toUpperCase() + p.metal?.slice(1)}</p>
+      <p><span className="font-semibold text-[#064E3B]">Product ID:</span> {p.productId || p.id}</p>
       <p><span className="font-semibold text-[#064E3B]">Purity:</span> {p.purity}</p>
-      <p><span className="font-semibold text-[#064E3B]">Weight:</span> {p.weight}g</p>
+      <p><span className="font-semibold text-[#064E3B]">Weight:</span> {p.weightLabel || `${p.weight}g`}</p>
       <p><span className="font-semibold text-[#064E3B]">Category:</span> {p.category}</p>
       {p.diamond && (
         <>
@@ -21,7 +23,8 @@ const TAB_CONTENT = {
           <p><span className="font-semibold text-[#064E3B]">Colour:</span> {p.diamond.color}</p>
         </>
       )}
-      <p><span className="font-semibold text-[#064E3B]">Occasion:</span> {p.occasion}</p>
+      <p><span className="font-semibold text-[#064E3B]">Occasions:</span> {[...(Array.isArray(p.occasions) ? p.occasions : [p.occasions]), ...(Array.isArray(p.occasion) ? p.occasion : [p.occasion])].filter(Boolean).filter((v, i, a) => a.indexOf(v) === i).join(", ")}</p>
+      <p><span className="font-semibold text-[#064E3B]">For:</span> {Array.isArray(p.for) ? p.for.join(", ") : Array.isArray(p.gender) ? p.gender.join(", ") : (p.for || p.gender)}</p>
     </div>
   ),
   delivery: () => (
@@ -63,6 +66,7 @@ export default function ProductDetails() {
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState("details");
   const [toast, setToast] = useState(null);
+  const [heartBurst, setHeartBurst] = useState(0);
 
   const showToast = (msg, type = "success") => {
     setToast({ msg, type });
@@ -100,12 +104,18 @@ export default function ProductDetails() {
 
   // Related products
   const related = products
-    .filter((p) => p.id !== product.id && (p.category === product.category || p.metal === product.metal))
+    .filter((p) => p.id !== product.id && (p.category?.toLowerCase() === product.category?.toLowerCase() || p.metal === product.metal))
     .slice(0, 4);
 
   const handleAddToCart = () => {
     for (let i = 0; i < quantity; i++) addToCart(product);
     showToast(`${product.name} added to cart`);
+  };
+
+  const handleWishlist = () => {
+    toggleWishlist(product);
+    if (!wishlisted) setHeartBurst((burst) => burst + 1);
+    showToast(wishlisted ? "Removed from wishlist" : "Added to wishlist");
   };
 
   const handleBuyNow = () => {
@@ -270,16 +280,20 @@ export default function ProductDetails() {
                 BUY NOW
               </button>
               <button
-                onClick={() => { toggleWishlist(product); showToast(wishlisted ? "Removed from wishlist" : "Added to wishlist"); }}
-                className="w-14 flex items-center justify-center rounded-full border transition-all hover:bg-[#0D3D38]"
+                onClick={handleWishlist}
+                className="relative w-14 flex items-center justify-center rounded-full border transition-all hover:bg-[#0D3D38]"
                 style={{ borderColor: wishlisted ? "#F5DF92" : "#e5e7eb" }}
+                aria-label={wishlisted ? "Remove from wishlist" : "Add to wishlist"}
+                aria-pressed={wishlisted}
               >
+                <HeartConfetti trigger={heartBurst} />
                 <svg
                   className="w-5 h-5"
-                  fill={wishlisted ? "#F5DF92" : "none"}
+                  fill={wishlisted ? "#E11D48" : "none"}
                   viewBox="0 0 24 24"
-                  stroke={wishlisted ? "#F5DF92" : "#064E3B"}
+                  stroke={wishlisted ? "#E11D48" : "#064E3B"}
                   strokeWidth={1.5}
+                  aria-hidden="true"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                 </svg>

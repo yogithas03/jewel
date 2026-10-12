@@ -9,6 +9,7 @@ const defaultFilters = {
   maxPrice: "",
   occasion: "All",
   gender: "All",
+  for: "All",
   sort: "popular",
   category: "All",
 };
@@ -25,19 +26,65 @@ export default function ShopPage({ metal, title, subtitle, heroImage, categoryOp
         ? allProducts.filter((p) => p.isDiamond)
         : allProducts.filter((p) => p.metal === metal && !p.isDiamond);
 
-    if (filters.purity !== "All") list = list.filter((p) => p.purity === filters.purity);
-    if (filters.occasion !== "All") list = list.filter((p) => p.occasion === filters.occasion);
-    if (filters.gender !== "All") list = list.filter((p) => p.gender === filters.gender);
-    if (filters.category !== "All") list = list.filter((p) => p.category === filters.category);
-    if (filters.minPrice) list = list.filter((p) => p.price >= parseFloat(filters.minPrice));
-    if (filters.maxPrice) list = list.filter((p) => p.price <= parseFloat(filters.maxPrice));
+    if (filters.purity && filters.purity !== "All") {
+      const targetPurity = filters.purity.toLowerCase();
+      list = list.filter((p) => {
+        const pPurity = String(p.purity || "").toLowerCase();
+        return pPurity === targetPurity || pPurity.includes(targetPurity);
+      });
+    }
+
+    if (filters.occasion && filters.occasion !== "All") {
+      const targetOccasion = filters.occasion.toLowerCase();
+      list = list.filter((p) => {
+        const occList = [
+          ...(Array.isArray(p.occasion) ? p.occasion : [p.occasion]),
+          ...(Array.isArray(p.occasions) ? p.occasions : [p.occasions]),
+        ].filter(Boolean).flatMap((o) => String(o).split(",").map((s) => s.trim().toLowerCase()));
+        return occList.includes(targetOccasion);
+      });
+    }
+
+    const activeFor = (filters.for && filters.for !== "All")
+      ? filters.for
+      : (filters.gender && filters.gender !== "All")
+      ? filters.gender
+      : "All";
+
+    if (activeFor !== "All") {
+      const targetFor = activeFor.toLowerCase();
+      list = list.filter((p) => {
+        const forList = [
+          ...(Array.isArray(p.for) ? p.for : [p.for]),
+          ...(Array.isArray(p.gender) ? p.gender : [p.gender]),
+        ].filter(Boolean).flatMap((v) => String(v).split(",").map((s) => s.trim().toLowerCase()));
+        return forList.includes(targetFor);
+      });
+    }
+
+    if (filters.category && filters.category !== "All") {
+      const target = filters.category.toLowerCase();
+      list = list.filter((p) => p.category?.toLowerCase() === target);
+    }
+
+    if (filters.minPrice !== "" && filters.minPrice !== null && !isNaN(Number(filters.minPrice))) {
+      list = list.filter((p) => Number(p.price) >= Number(filters.minPrice));
+    }
+    if (filters.maxPrice !== "" && filters.maxPrice !== null && !isNaN(Number(filters.maxPrice))) {
+      list = list.filter((p) => Number(p.price) <= Number(filters.maxPrice));
+    }
 
     switch (filters.sort) {
       case "price_asc": list = [...list].sort((a, b) => a.price - b.price); break;
       case "price_desc": list = [...list].sort((a, b) => b.price - a.price); break;
-      case "new": list = [...list].sort((a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0)); break;
-      case "rating": list = [...list].sort((a, b) => b.rating - a.rating); break;
-      default: list = [...list].sort((a, b) => (b.isBestSeller ? 1 : 0) - (a.isBestSeller ? 1 : 0));
+      case "new": list = [...list].sort((a, b) => (b.isNew || b.badge === "New" ? 1 : 0) - (a.isNew || a.badge === "New" ? 1 : 0)); break;
+      case "rating": list = [...list].sort((a, b) => (b.rating || 0) - (a.rating || 0)); break;
+      case "popular":
+      default: list = [...list].sort((a, b) => {
+        const scoreB = (b.isBestSeller || b.badge === "Bestseller" ? 10 : 0) + (b.reviews || 0) * 0.01;
+        const scoreA = (a.isBestSeller || a.badge === "Bestseller" ? 10 : 0) + (a.reviews || 0) * 0.01;
+        return scoreB - scoreA;
+      });
     }
 
     return list;
