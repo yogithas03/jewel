@@ -39,7 +39,7 @@ function DockItem({ children, className = '', onClick, mouseX, spring, distance,
         width: size,
         height: size,
         backgroundColor: '#064E3B',
-        borderColor: 'rgba(245,223,146,0.4)',
+        borderColor: 'rgba(232, 201, 108,0.4)',
       }}
       tabIndex={0}
       role="button"
@@ -74,7 +74,7 @@ function DockLabel({ children, className = '', ...rest }) {
           role="tooltip"
           style={{
             x: '-50%',
-            backgroundColor: '#F5DF92',
+            backgroundColor: '#E8C96C',
             color: '#064E3B',
             transform: 'translateX(-50%)',
           }}
@@ -132,7 +132,7 @@ export default function Dock({
         style={{
           height: panelHeight,
           backgroundColor: 'rgba(6,78,59,0.85)',
-          border: '1px solid rgba(245,223,146,0.25)',
+          border: '1px solid rgba(232, 201, 108,0.25)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
           boxShadow: '0 8px 32px rgba(0,0,0,0.4)',

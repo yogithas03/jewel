@@ -6,7 +6,7 @@ export const services = [
     description:
       "Work with our master craftsmen to design a piece uniquely yours. From concept to creation, we guide you through every step — metal choice, gemstones, design, and finish.",
     icon: "✦",
-    color: "#F5DF92",
+    color: "#E8C96C",
     features: ["Personal design consultation", "3D design preview", "All metals & gemstones", "Lifetime support"],
   },
   {
@@ -26,7 +26,7 @@ export const services = [
     description:
       "Professional ultrasonic and steam cleaning for all types of jewellery. We use industry-grade equipment to safely remove tarnish and restore your jewellery's lustre.",
     icon: "✧",
-    color: "#F5DF92",
+    color: "#E8C96C",
     features: ["Ultrasonic cleaning", "Steam polishing", "Rhodium plating", "Safe for all stones"],
   },
   {
@@ -46,7 +46,7 @@ export const services = [
     description:
       "Obtain a certified valuation certificate for your jewellery — essential for insurance, legal purposes, or estate planning. Issued by our in-house certified gemologist.",
     icon: "◈",
-    color: "#F5DF92",
+    color: "#E8C96C",
     features: ["Certified gemologist", "Detailed report", "Insurance-accepted certificate", "Quick turnaround"],
   },
   {
@@ -66,7 +66,7 @@ export const services = [
     description:
       "Create a bridal jewellery set that perfectly complements your wedding attire. Our bridal specialists work with you months in advance to craft a memorable ensemble.",
     icon: "♛",
-    color: "#F5DF92",
+    color: "#E8C96C",
     features: ["Bridal specialist", "Complete set design", "Trousseau planning", "Trial fittings"],
   },
 ];

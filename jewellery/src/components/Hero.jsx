@@ -63,14 +63,14 @@ export default function Hero() {
         className="absolute top-0 right-0 w-[60%] h-full pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at 70% 50%, rgba(255,248,210,0.38) 0%, rgba(255,220,80,0.22) 25%, rgba(245,223,146,0.12) 50%, transparent 72%)",
+            "radial-gradient(ellipse at 70% 50%, rgba(255,248,210,0.38) 0%, rgba(255,220,80,0.22) 25%, rgba(232, 201, 108,0.12) 50%, transparent 72%)",
         }}
       />
 
       {/* Decorative ambient lighting behind shifted jewel */}
       <div
         className="absolute top-1/4 right-8 lg:right-20 w-96 h-96 rounded-full opacity-[0.55] blur-2xl pointer-events-none"
-        style={{ backgroundColor: "#F5DF92" }}
+        style={{ backgroundColor: "#E8C96C" }}
       />
       <div
         className="absolute top-1/3 right-16 lg:right-32 w-64 h-64 rounded-full opacity-[0.38] blur-xl pointer-events-none"
@@ -89,8 +89,8 @@ export default function Hero() {
         <div className="max-w-2xl">
           {/* Eyebrow */}
           <div className="flex items-center gap-3 mb-6">
-            <div className="h-px w-10" style={{ backgroundColor: "#F5DF92" }} />
-            <span className="text-xs tracking-[0.35em] font-medium uppercase" style={{ color: "#F5DF92" }}>
+            <div className="h-px w-10" style={{ backgroundColor: "#E8C96C" }} />
+            <span className="text-xs tracking-[0.35em] font-medium uppercase" style={{ color: "#E8C96C" }}>
               Since 1992
             </span>
           </div>
@@ -98,15 +98,15 @@ export default function Hero() {
           {/* Heading */}
           <h1
             className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold leading-tight mb-6"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#FCF1D0" }}
+            style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#F2DEAA" }}
           >
             Timeless <br />
-            <span style={{ color: "#F5DF92" }}>Elegance,</span>
+            <span style={{ color: "#E8C96C" }}>Elegance,</span>
             <br />
             Crafted for You
           </h1>
 
-          <p className="text-base sm:text-lg leading-relaxed mb-10 max-w-lg" style={{ color: "rgba(252,241,208,0.75)" }}>
+          <p className="text-base sm:text-lg leading-relaxed mb-10 max-w-lg" style={{ color: "rgba(242, 222, 170,0.75)" }}>
             Discover jewellery designed to celebrate every beautiful moment — from everyday grace to once-in-a-lifetime occasions.
           </p>
 
@@ -115,7 +115,7 @@ export default function Hero() {
             <Link
               to="/jewellery"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-sm tracking-wider transition-all hover:scale-105 hover:shadow-lg"
-              style={{ backgroundColor: "#F5DF92", color: "#064E3B" }}
+              style={{ backgroundColor: "#E8C96C", color: "#064E3B" }}
             >
               SHOP JEWELLERY
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -125,7 +125,7 @@ export default function Hero() {
             <Link
               to="/jewellery/bridal"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-sm tracking-wider border transition-all hover:bg-white/10"
-              style={{ borderColor: "rgba(252,241,208,0.45)", color: "#FCF1D0" }}
+              style={{ borderColor: "rgba(242, 222, 170,0.45)", color: "#F2DEAA" }}
             >
               EXPLORE BRIDAL
             </Link>
@@ -139,10 +139,10 @@ export default function Hero() {
               { value: "BIS", label: "Hallmarked" },
             ].map((stat) => (
               <div key={stat.label}>
-                <p className="text-2xl font-bold" style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#F5DF92" }}>
+                <p className="text-2xl font-bold" style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#E8C96C" }}>
                   {stat.value}
                 </p>
-                <p className="text-xs tracking-wider mt-0.5" style={{ color: "rgba(252,241,208,0.55)" }}>
+                <p className="text-xs tracking-wider mt-0.5" style={{ color: "rgba(242, 222, 170,0.55)" }}>
                   {stat.label}
                 </p>
               </div>
@@ -153,8 +153,8 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce z-10">
-        <div className="h-6 w-px" style={{ backgroundColor: "rgba(245,223,146,0.4)" }} />
-        <p className="text-xs tracking-widest" style={{ color: "rgba(245,223,146,0.5)" }}>SCROLL</p>
+        <div className="h-6 w-px" style={{ backgroundColor: "rgba(232, 201, 108,0.4)" }} />
+        <p className="text-xs tracking-widest" style={{ color: "rgba(232, 201, 108,0.5)" }}>SCROLL</p>
       </div>
     </section>
   );

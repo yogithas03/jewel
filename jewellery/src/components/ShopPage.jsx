@@ -101,12 +101,12 @@ export default function ShopPage({ metal, title, subtitle, heroImage, categoryOp
           <p className="text-xs tracking-[0.35em] mb-3" style={{ color: "#D79B01" }}>DIKSHI JEWELLERY</p>
           <h1
             className="text-3xl sm:text-4xl lg:text-5xl font-semibold"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#FCF1D0" }}
+            style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#F2DEAA" }}
           >
             {title}
           </h1>
           {subtitle && (
-            <p className="mt-3 text-sm max-w-md" style={{ color: "rgba(252,241,208,0.70)" }}>
+            <p className="mt-3 text-sm max-w-md" style={{ color: "rgba(242, 222, 170,0.70)" }}>
               {subtitle}
             </p>
           )}
@@ -122,7 +122,7 @@ export default function ShopPage({ metal, title, subtitle, heroImage, categoryOp
               className="px-4 py-2 rounded-full text-sm font-medium border transition-all"
               style={
                 filters.category === "All"
-                  ? { backgroundColor: "#064E3B", color: "#FCF1D0", borderColor: "#064E3B" }
+                  ? { backgroundColor: "#064E3B", color: "#F2DEAA", borderColor: "#064E3B" }
                   : { backgroundColor: "white", color: "#064E3B", borderColor: "#e5e7eb" }
               }
             >
@@ -135,7 +135,7 @@ export default function ShopPage({ metal, title, subtitle, heroImage, categoryOp
                 className="px-4 py-2 rounded-full text-sm font-medium border transition-all capitalize"
                 style={
                   filters.category === c
-                    ? { backgroundColor: "#064E3B", color: "#FCF1D0", borderColor: "#064E3B" }
+                    ? { backgroundColor: "#064E3B", color: "#F2DEAA", borderColor: "#064E3B" }
                     : { backgroundColor: "white", color: "#064E3B", borderColor: "#e5e7eb" }
                 }
               >

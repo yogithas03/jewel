@@ -64,7 +64,7 @@ export default function Contact() {
           <div className="relative z-10 px-4 py-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between gap-4">
               <div className="flex items-center gap-3 text-[#f7e8b5]">
-                <div className="flex items-center justify-center rounded-full border border-[#f5df92] bg-[#0b1f1b]/70 px-2 py-1 text-[9px] font-semibold uppercase tracking-[0.24em] text-[#f5df92]" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+                <div className="flex items-center justify-center rounded-full border border-[#E8C96C] bg-[#0b1f1b]/70 px-2 py-1 text-[9px] font-semibold uppercase tracking-[0.24em] text-[#E8C96C]" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
                   DIKSHI
                 </div>
               </div>
@@ -78,10 +78,10 @@ export default function Contact() {
               </nav>
 
               <div className="flex items-center gap-3 text-xs text-[#f7f2e9]">
-                <button type="button" className="rounded-full border border-[#f5df92]/50 bg-[#0f1b18]/70 px-2 py-1 text-[10px] uppercase tracking-[0.2em] text-[#f5df92]">
+                <button type="button" className="rounded-full border border-[#E8C96C]/50 bg-[#0f1b18]/70 px-2 py-1 text-[10px] uppercase tracking-[0.2em] text-[#E8C96C]">
                   Search
                 </button>
-                <button type="button" className="rounded-full border border-[#f5df92]/50 bg-[#0f1b18]/70 px-2 py-1 text-[10px] uppercase tracking-[0.2em] text-[#f5df92]">
+                <button type="button" className="rounded-full border border-[#E8C96C]/50 bg-[#0f1b18]/70 px-2 py-1 text-[10px] uppercase tracking-[0.2em] text-[#E8C96C]">
                   Cart
                 </button>
               </div>
@@ -106,7 +106,7 @@ export default function Contact() {
                       target={item.href.startsWith("http") ? "_blank" : undefined}
                       rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
                       aria-label={item.label}
-                      className="flex h-11 w-11 items-center justify-center rounded-full border border-[#f5df92]/50 bg-[#0f1b18]/60 text-lg text-[#f5df92] shadow-sm backdrop-blur-sm transition hover:scale-105 hover:bg-[#0f1b18]/80"
+                      className="flex h-11 w-11 items-center justify-center rounded-full border border-[#E8C96C]/50 bg-[#0f1b18]/60 text-lg text-[#E8C96C] shadow-sm backdrop-blur-sm transition hover:scale-105 hover:bg-[#0f1b18]/80"
                     >
                       <span>{item.icon}</span>
                     </a>
@@ -114,7 +114,7 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="absolute right-0 top-1/2 hidden -translate-y-1/2 rounded-full border border-[#f5df92]/50 bg-[#0c1714]/80 px-4 py-2 text-right text-[#f5df92] shadow-lg sm:block">
+              <div className="absolute right-0 top-1/2 hidden -translate-y-1/2 rounded-full border border-[#E8C96C]/50 bg-[#0c1714]/80 px-4 py-2 text-right text-[#E8C96C] shadow-lg sm:block">
                 <div className="text-[10px] uppercase tracking-[0.3em]">Save</div>
                 <div className="text-2xl font-semibold">61%</div>
               </div>
@@ -124,14 +124,14 @@ export default function Contact() {
 
         <div className="grid gap-6 px-4 pb-5 pt-5 sm:px-6 lg:grid-cols-[1.08fr_0.92fr] lg:px-8 lg:pb-8 lg:pt-6">
           <section className="rounded-[24px] bg-white/5 p-5 shadow-[0_10px_25px_rgba(16,29,25,0.04)] ring-1 ring-[#e5d7ba]/30 backdrop-blur-sm sm:p-6 lg:p-7">
-            <h2 className="mb-6 text-3xl font-semibold text-[#f7ecd0]" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+            <h2 className="mb-6 text-3xl font-semibold text-[#F2DEAA]" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
               Send Us a Message
             </h2>
 
             {submitted ? (
               <div className="rounded-[20px] border border-[#e3d3a1]/50 bg-[#0b3f37]/30 p-8 text-center backdrop-blur-sm">
                 <div className="mb-4 text-5xl text-[#d7a933]">✓</div>
-                <h3 className="mb-2 text-2xl font-semibold text-[#f7ecd0]" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+                <h3 className="mb-2 text-2xl font-semibold text-[#F2DEAA]" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
                   Message Received!
                 </h3>
                 <p className="text-sm text-white/80">Thank you for reaching out. Our team will get back to you within 24 hours.</p>
@@ -212,14 +212,14 @@ export default function Contact() {
           </section>
 
           <aside className="rounded-[24px] bg-white/5 p-5 shadow-[0_10px_25px_rgba(16,29,25,0.04)] ring-1 ring-[#e5d7ba]/30 backdrop-blur-sm sm:p-6 lg:p-7">
-            <h2 className="mb-6 text-3xl font-semibold text-[#f7ecd0]" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+            <h2 className="mb-6 text-3xl font-semibold text-[#F2DEAA]" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
               Our Location
             </h2>
 
             <div className="space-y-4">
               {CONTACT_INFO.map((item) => (
                 <div key={item.label} className="flex items-start gap-3 rounded-[16px] border border-[#e5d7ba]/25 bg-white/5 p-3.5">
-                  <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#f5df92]/30 bg-[#0b3f37]/70 text-sm text-[#f5df92]">
+                  <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#E8C96C]/30 bg-[#0b3f37]/70 text-sm text-[#E8C96C]">
                     {item.icon}
                   </div>
                   <div>
@@ -241,7 +241,7 @@ export default function Contact() {
 function Field({ label, error, children }) {
   return (
     <div>
-      <label className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.18em] text-[#f7ecd0]">{label}</label>
+      <label className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.18em] text-[#F2DEAA]">{label}</label>
       {children}
       {error && <p className="mt-1 text-xs text-red-300">{error}</p>}
     </div>
@@ -338,6 +338,6 @@ function SubjectSelect({ value, onChange }) {
 
 function inputClass(error) {
   return `w-full rounded-xl border bg-transparent px-4 py-3 text-sm text-white placeholder:text-white/50 outline-none transition ${
-    error ? "border-red-400 focus:border-red-300" : "border-white/20 focus:border-[#f5df92]"
+    error ? "border-red-400 focus:border-red-300" : "border-white/20 focus:border-[#E8C96C]"
   }`;
 }

@@ -39,16 +39,16 @@ export default function GoldRateCard({
           <MetalIcon metal={label} />
           <div className="min-w-0">
             <h3
-              className="text-lg font-semibold leading-tight text-[#FCF1D0]"
+              className="text-lg font-semibold leading-tight text-[#F2DEAA]"
               style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
             >
               {label}
             </h3>
-            <p className="mt-0.5 truncate text-[11px] text-[#FCF1D0]/75">{purity}</p>
+            <p className="mt-0.5 truncate text-[11px] text-[#F2DEAA]/75">{purity}</p>
           </div>
         </div>
         {label === "Gold" && (
-          <div className="shrink-0 rounded-md bg-[#F5DF92]/20 px-2 py-1 text-[9px] font-semibold leading-4 text-[#FCF1D0]">
+          <div className="shrink-0 rounded-md bg-[#E8C96C]/20 px-2 py-1 text-[9px] font-semibold leading-4 text-[#F2DEAA]">
             24K · 99.9% pure<br />22K · 91.6% pure
           </div>
         )}
@@ -60,15 +60,15 @@ export default function GoldRateCard({
             key={rateLabel}
             className="flex items-center justify-between gap-3 border-t border-dashed border-white/20 py-2"
           >
-            <span className="text-xs text-[#FCF1D0]/80">{rateLabel}</span>
-            <span className="whitespace-nowrap text-sm font-bold text-[#FCF1D0]">
+            <span className="text-xs text-[#F2DEAA]/80">{rateLabel}</span>
+            <span className="whitespace-nowrap text-sm font-bold text-[#F2DEAA]">
               {typeof value === "number" ? formatINR(value) : "—"}
             </span>
           </div>
         ))}
       </div>
 
-      <div className="relative z-10 flex items-center justify-between border-t border-white/15 bg-white/5 px-4 py-2 text-[9px] text-[#FCF1D0]/75 sm:px-5">
+      <div className="relative z-10 flex items-center justify-between border-t border-white/15 bg-white/5 px-4 py-2 text-[9px] text-[#F2DEAA]/75 sm:px-5">
         <span className="inline-flex items-center gap-1.5">
           <span className="h-1.5 w-1.5 rounded-full bg-[#0F766E]" />
           Live market rate · INR
@@ -97,9 +97,9 @@ function MetalIcon({ metal }) {
 
   return (
     <svg aria-hidden="true" viewBox="0 0 48 40" className="h-10 w-12 shrink-0">
-      <path d="M6 25 14 9h20l9 16-9 10H14L6 25Z" fill={fill} stroke="#FCF1D0" strokeOpacity=".35" />
+      <path d="M6 25 14 9h20l9 16-9 10H14L6 25Z" fill={fill} stroke="#F2DEAA" strokeOpacity=".35" />
       <path d="m14 9 10 8 10-8M6 25l18-8 19 8M14 35l10-18 10 18" fill={highlight} fillOpacity=".72" />
-      <path d="m6 25 18-8 19 8M14 35l10-18 10 18" fill="none" stroke="#FCF1D0" strokeOpacity=".3" />
+      <path d="m6 25 18-8 19 8M14 35l10-18 10 18" fill="none" stroke="#F2DEAA" strokeOpacity=".3" />
     </svg>
   );
 }

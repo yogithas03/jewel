@@ -14,7 +14,7 @@
   z-index: 0;
   width: 100%;
   flex: none;
-  color: #fcf1d0;
+  color: #F2DEAA;
   background: #064e3b;
   transform-origin: center bottom;
   will-change: opacity, transform;
@@ -44,7 +44,7 @@
 }
 
 .footer-logo-name {
-  color: #fcf1d0;
+  color: #F2DEAA;
   font-family: "Playfair Display", Georgia, serif;
   font-size: 1.8rem;
   font-weight: 500;
@@ -63,7 +63,7 @@
 .footer-description {
   max-width: 19rem;
   margin-top: 1.25rem;
-  color: rgba(252, 241, 208, 0.72);
+  color: rgba(242, 222, 170, 0.72);
   font-size: 0.875rem;
   line-height: 1.8;
 }
@@ -131,7 +131,7 @@
 }
 
 .footer-column address {
-  color: rgba(252, 241, 208, 0.72);
+  color: rgba(242, 222, 170, 0.72);
   font-size: 0.82rem;
   font-style: normal;
   line-height: 1.75;
@@ -145,7 +145,7 @@
   position: relative;
   display: inline-flex;
   width: fit-content;
-  color: rgba(252, 241, 208, 0.72);
+  color: rgba(242, 222, 170, 0.72);
   font-size: 0.84rem;
   line-height: 1.55;
   text-decoration: none;
@@ -167,7 +167,7 @@
 
 .footer-link:hover,
 .footer-link:focus-visible {
-  color: #fcf1d0;
+  color: #F2DEAA;
 }
 
 .footer-link:hover::after,
@@ -191,7 +191,7 @@
 }
 
 .footer-bottom > p {
-  color: rgba(252, 241, 208, 0.58);
+  color: rgba(242, 222, 170, 0.58);
   font-size: 0.75rem;
   line-height: 1.6;
 }
@@ -204,7 +204,7 @@
 }
 
 .footer-legal .footer-link {
-  color: rgba(252, 241, 208, 0.58);
+  color: rgba(242, 222, 170, 0.58);
   font-size: 0.75rem;
 }
 

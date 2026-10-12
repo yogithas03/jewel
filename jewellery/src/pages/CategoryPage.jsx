@@ -150,7 +150,7 @@ export default function CategoryPage() {
           <p className="text-xs tracking-[0.35em] mb-2" style={{ color: "#D79B01" }}>DIKSHI JEWELLERY</p>
           <h1
             className="text-3xl font-semibold sm:text-4xl"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#FCF1D0" }}
+            style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#F2DEAA" }}
           >
             {label}
           </h1>

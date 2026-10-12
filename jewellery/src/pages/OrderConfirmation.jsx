@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
+import { fireColorPaperConfetti } from "../utils/confetti";
 
 export default function OrderConfirmation() {
   const location = useLocation();
@@ -7,6 +8,12 @@ export default function OrderConfirmation() {
 
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (order) {
+      fireColorPaperConfetti();
+    }
+  }, [order]);
 
   useEffect(() => {
     // 1. Check location state
@@ -69,7 +76,7 @@ export default function OrderConfirmation() {
         <Link
           to="/"
           className="px-8 py-3.5 rounded-full text-xs font-bold tracking-wider transition-all hover:opacity-90"
-          style={{ backgroundColor: "#064E3B", color: "#FCF1D0" }}
+          style={{ backgroundColor: "#064E3B", color: "#F2DEAA" }}
         >
           BACK TO HOMEPAGE
         </Link>
@@ -89,12 +96,21 @@ export default function OrderConfirmation() {
             <span>/</span>
             <span className="font-semibold" style={{ color: "#064E3B" }}>Order Confirmation</span>
           </nav>
-          <button
-            onClick={() => window.print()}
-            className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors"
-          >
-            <span>🖨️</span> Print Invoice
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={fireColorPaperConfetti}
+              className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg border border-[#D79B01]/50 text-[#064E3B] bg-[#F2DEAA]/50 hover:bg-[#F2DEAA] transition-colors"
+              title="Trigger celebratory confetti"
+            >
+              <span>🎉</span> Celebrate
+            </button>
+            <button
+              onClick={() => window.print()}
+              className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors"
+            >
+              <span>🖨️</span> Print Invoice
+            </button>
+          </div>
         </div>
       </div>
 
@@ -103,7 +119,7 @@ export default function OrderConfirmation() {
         <div className="bg-white rounded-3xl border border-gray-100 p-8 sm:p-10 shadow-sm text-center mb-8 relative overflow-hidden">
           <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#064E3B] via-[#D79B01] to-[#064E3B]" />
 
-          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full mx-auto flex items-center justify-center text-3xl sm:text-4xl shadow-inner mb-5" style={{ backgroundColor: "#064E3B", color: "#FCF1D0" }}>
+          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full mx-auto flex items-center justify-center text-3xl sm:text-4xl shadow-inner mb-5" style={{ backgroundColor: "#064E3B", color: "#F2DEAA" }}>
             ✓
           </div>
 
@@ -275,7 +291,7 @@ export default function OrderConfirmation() {
         </div>
 
         {/* Safety & Packaging Note */}
-        <div className="p-4 sm:p-5 rounded-2xl bg-[#FCF1D0]/60 border border-[#F5DF92] text-xs text-[#064E3B] mb-8 flex items-start gap-3">
+        <div className="p-4 sm:p-5 rounded-2xl bg-[#F2DEAA]/60 border border-[#E8C96C] text-xs text-[#064E3B] mb-8 flex items-start gap-3">
           <span className="text-xl">🎁</span>
           <div className="leading-relaxed">
             <p className="font-bold text-sm mb-1">“Your jewellery is carefully packed for a safe delivery.”</p>
@@ -290,7 +306,7 @@ export default function OrderConfirmation() {
           <Link
             to="/jewellery"
             className="w-full sm:w-auto px-8 py-3.5 rounded-full font-bold text-xs tracking-wider uppercase text-center transition-all hover:opacity-90 shadow-sm"
-            style={{ backgroundColor: "#064E3B", color: "#FCF1D0" }}
+            style={{ backgroundColor: "#064E3B", color: "#F2DEAA" }}
           >
             CONTINUE SHOPPING
           </Link>

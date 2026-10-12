@@ -17,7 +17,7 @@ export default function CategoryCard({ category }) {
 
       <div className="absolute bottom-0 left-0 right-0 p-4">
         <h3
-          className="text-sm font-semibold text-white mb-1 group-hover:text-[#F5DF92] transition-colors"
+          className="text-sm font-semibold text-white mb-1 group-hover:text-[#E8C96C] transition-colors"
           style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
         >
           {category.name}
@@ -27,7 +27,7 @@ export default function CategoryCard({ category }) {
         </p>
         <span
           className="text-xs tracking-wider font-medium"
-          style={{ color: "#F5DF92" }}
+          style={{ color: "#E8C96C" }}
         >
           EXPLORE →
         </span>

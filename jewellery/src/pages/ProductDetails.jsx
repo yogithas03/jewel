@@ -87,7 +87,7 @@ export default function ProductDetails() {
         <Link
           to="/jewellery"
           className="px-8 py-3 rounded-full text-sm font-semibold"
-          style={{ backgroundColor: "#064E3B", color: "#FCF1D0" }}
+          style={{ backgroundColor: "#064E3B", color: "#F2DEAA" }}
         >
           CONTINUE SHOPPING
         </Link>
@@ -130,11 +130,11 @@ export default function ProductDetails() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-xs text-gray-400 mb-8">
-          <Link to="/" className="hover:text-[#F5DF92]">Home</Link>
+          <Link to="/" className="hover:text-[#E8C96C]">Home</Link>
           <span>/</span>
-          <Link to="/jewellery" className="hover:text-[#F5DF92]">Jewellery</Link>
+          <Link to="/jewellery" className="hover:text-[#E8C96C]">Jewellery</Link>
           <span>/</span>
-          <Link to={`/category/${product.category}`} className="hover:text-[#F5DF92] capitalize">{product.category}</Link>
+          <Link to={`/category/${product.category}`} className="hover:text-[#E8C96C] capitalize">{product.category}</Link>
           <span>/</span>
           <span className="text-gray-600">{product.name}</span>
         </nav>
@@ -156,7 +156,7 @@ export default function ProductDetails() {
                     key={i}
                     onClick={() => setSelectedImage(i)}
                     className={`w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
-                      selectedImage === i ? "border-[#F5DF92]" : "border-gray-200"
+                      selectedImage === i ? "border-[#E8C96C]" : "border-gray-200"
                     }`}
                   >
                     <img src={img} alt={`view ${i + 1}`} className="w-full h-full object-cover" />
@@ -169,11 +169,11 @@ export default function ProductDetails() {
           {/* Info */}
           <div>
             <div className="flex items-center gap-3 mb-3">
-              <span className="text-xs uppercase tracking-widest font-medium" style={{ color: "#F5DF92" }}>
+              <span className="text-xs uppercase tracking-widest font-medium" style={{ color: "#E8C96C" }}>
                 {product.metal} · {product.purity}
               </span>
               {product.isNew && (
-                <span className="text-xs px-2 py-0.5 rounded-full font-semibold" style={{ backgroundColor: "#064E3B", color: "#FCF1D0" }}>NEW</span>
+                <span className="text-xs px-2 py-0.5 rounded-full font-semibold" style={{ backgroundColor: "#064E3B", color: "#F2DEAA" }}>NEW</span>
               )}
             </div>
 
@@ -191,7 +191,7 @@ export default function ProductDetails() {
                   <svg
                     key={i}
                     className="w-4 h-4"
-                    fill={i < Math.floor(product.rating) ? "#F5DF92" : "#e5e7eb"}
+                    fill={i < Math.floor(product.rating) ? "#E8C96C" : "#e5e7eb"}
                     viewBox="0 0 20 20"
                   >
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -233,7 +233,7 @@ export default function ProductDetails() {
                   <span
                     key={c.label}
                     className="px-3 py-1.5 text-xs rounded-full"
-                    style={{ backgroundcolor: "#FCF1D0", color: "#064E3B", border: "1px solid rgba(245,223,146,0.3)" }}
+                    style={{ backgroundcolor: "#F2DEAA", color: "#064E3B", border: "1px solid rgba(232, 201, 108,0.3)" }}
                   >
                     {c.label}
                   </span>
@@ -268,21 +268,21 @@ export default function ProductDetails() {
               <button
                 onClick={handleAddToCart}
                 className="flex-1 py-4 rounded-full font-semibold text-sm tracking-wider transition-all hover:opacity-90 active:scale-95"
-                style={{ backgroundColor: "#064E3B", color: "#FCF1D0" }}
+                style={{ backgroundColor: "#064E3B", color: "#F2DEAA" }}
               >
                 ADD TO CART
               </button>
               <button
                 onClick={handleBuyNow}
-                className="flex-1 py-4 rounded-full font-semibold text-sm tracking-wider border transition-all hover:bg-[#F5DF92] hover:border-[#F5DF92] hover:text-[#064E3B]"
-                style={{ borderColor: "#F5DF92", color: "#F5DF92" }}
+                className="flex-1 py-4 rounded-full font-semibold text-sm tracking-wider border transition-all hover:bg-[#E8C96C] hover:border-[#E8C96C] hover:text-[#064E3B]"
+                style={{ borderColor: "#E8C96C", color: "#E8C96C" }}
               >
                 BUY NOW
               </button>
               <button
                 onClick={handleWishlist}
                 className="relative w-14 flex items-center justify-center rounded-full border transition-all hover:bg-[#0D3D38]"
-                style={{ borderColor: wishlisted ? "#F5DF92" : "#e5e7eb" }}
+                style={{ borderColor: wishlisted ? "#E8C96C" : "#e5e7eb" }}
                 aria-label={wishlisted ? "Remove from wishlist" : "Add to wishlist"}
                 aria-pressed={wishlisted}
               >
@@ -325,7 +325,7 @@ export default function ProductDetails() {
                 onClick={() => setActiveTab(tab.key)}
                 className={`px-6 py-3 text-sm font-medium whitespace-nowrap border-b-2 transition-all -mb-px ${
                   activeTab === tab.key
-                    ? "border-[#F5DF92] text-[#064E3B]"
+                    ? "border-[#E8C96C] text-[#064E3B]"
                     : "border-transparent text-gray-400 hover:text-[#064E3B]"
                 }`}
               >

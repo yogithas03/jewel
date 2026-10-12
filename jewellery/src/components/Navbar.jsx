@@ -60,7 +60,7 @@ function NavDockItem({ icon, label, badge, onClick, mouseX }) {
           style={{
             opacity: useTransform(isHovered, [0, 1], [0, 1]),
             y: useTransform(isHovered, [0, 1], [4, 0]),
-            backgroundColor: "#F5DF92",
+            backgroundColor: "#E8C96C",
             color: "#064E3B",
             transform: "translateX(-50%)",
           }}
@@ -80,7 +80,7 @@ function NavDockItem({ icon, label, badge, onClick, mouseX }) {
           width: size,
           height: size,
           backgroundColor: "rgba(255,255,255,0.07)",
-          borderColor: "rgba(245,223,146,0.35)",
+          borderColor: "rgba(232, 201, 108,0.35)",
         }}
         aria-label={label}
       >
@@ -88,7 +88,7 @@ function NavDockItem({ icon, label, badge, onClick, mouseX }) {
         {badge > 0 && (
           <span
             className="absolute -top-0.5 -right-0.5 w-4 h-4 rounded-full text-[10px] flex items-center justify-center font-bold"
-            style={{ backgroundColor: "#F5DF92", color: "#064E3B" }}
+            style={{ backgroundColor: "#E8C96C", color: "#064E3B" }}
           >
             {badge}
           </span>
@@ -108,7 +108,7 @@ function NavDock({ onSearchClick, cartCount, wishlistCount }) {
       badge: 0,
       onClick: onSearchClick,
       icon: (
-        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="#F5DF92" strokeWidth={1.8}>
+        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="#E8C96C" strokeWidth={1.8}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
         </svg>
       ),
@@ -118,7 +118,7 @@ function NavDock({ onSearchClick, cartCount, wishlistCount }) {
       badge: wishlistCount,
       onClick: () => navigate("/wishlist"),
       icon: (
-        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="#F5DF92" strokeWidth={1.8}>
+        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="#E8C96C" strokeWidth={1.8}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
         </svg>
       ),
@@ -128,7 +128,7 @@ function NavDock({ onSearchClick, cartCount, wishlistCount }) {
       badge: cartCount,
       onClick: () => navigate("/cart"),
       icon: (
-        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="#F5DF92" strokeWidth={1.8}>
+        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="#E8C96C" strokeWidth={1.8}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
         </svg>
       ),
@@ -138,7 +138,7 @@ function NavDock({ onSearchClick, cartCount, wishlistCount }) {
       badge: 0,
       onClick: () => navigate("/login"),
       icon: (
-        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="#F5DF92" strokeWidth={1.8}>
+        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="#E8C96C" strokeWidth={1.8}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
         </svg>
       ),
@@ -150,7 +150,7 @@ function NavDock({ onSearchClick, cartCount, wishlistCount }) {
       className="hidden sm:flex items-end gap-2 px-3 pb-1 pt-2 rounded-2xl"
       style={{
         backgroundColor: "rgba(6,78,59,0.6)",
-        border: "1px solid rgba(245,223,146,0.2)",
+        border: "1px solid rgba(232, 201, 108,0.2)",
         backdropFilter: "blur(12px)",
         WebkitBackdropFilter: "blur(12px)",
       }}
@@ -245,7 +245,7 @@ export default function Navbar() {
       {/* Top announcement bar */}
       <div
         className="text-center py-2 text-sm tracking-widest font-semibold"
-        style={{ backgroundColor: "#F5DF92", color: "#064E3B" }}
+        style={{ backgroundColor: "#E8C96C", color: "#064E3B" }}
       >
         FREE SHIPPING ON ORDERS ABOVE ₹5,000 &nbsp;&nbsp;✦&nbsp;&nbsp; CERTIFIED JEWELLERY &nbsp;&nbsp;✦&nbsp;&nbsp; BIS HALLMARKED
       </div>
@@ -257,7 +257,7 @@ export default function Navbar() {
           <Link to="/" className="flex flex-col items-start shrink-0">
             <span
               className="text-xl lg:text-2xl font-bold tracking-wider leading-tight"
-              style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#FCF1D0" }}
+              style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#F2DEAA" }}
             >
               DIKSHI
             </span>
@@ -280,7 +280,7 @@ export default function Navbar() {
                   end={link.to === "/"}
                   className={({ isActive }) =>
                     `px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200 flex items-center gap-1 ${
-                      isActive ? "text-[#F5DF92]" : "text-[#FCF1D0] hover:text-[#F5DF92]"
+                      isActive ? "text-[#E8C96C]" : "text-[#F2DEAA] hover:text-[#E8C96C]"
                     }`
                   }
                 >
@@ -295,16 +295,16 @@ export default function Navbar() {
                 {link.dropdown && activeDropdown === link.label && (
                   <div
                     className="absolute top-full left-0 w-52 py-2 rounded-b-lg shadow-2xl z-50"
-                    style={{ backgroundColor: "#064E3B", border: "1px solid rgba(245,223,146,0.3)" }}
+                    style={{ backgroundColor: "#064E3B", border: "1px solid rgba(232, 201, 108,0.3)" }}
                   >
                     {link.dropdown.map((item) => (
                       <Link
                         key={item.to}
                         to={item.to}
                         className="block px-4 py-2 text-sm transition-colors duration-150"
-                        style={{ color: "#FCF1D0" }}
-                        onMouseEnter={(e) => (e.target.style.color = "#F5DF92")}
-                        onMouseLeave={(e) => (e.target.style.color = "#FCF1D0")}
+                        style={{ color: "#F2DEAA" }}
+                        onMouseEnter={(e) => (e.target.style.color = "#E8C96C")}
+                        onMouseLeave={(e) => (e.target.style.color = "#F2DEAA")}
                         onClick={() => setActiveDropdown(null)}
                       >
                         {item.label}
@@ -324,14 +324,14 @@ export default function Navbar() {
               {searchOpen && (
                 <div
                   className="absolute right-0 top-full mt-2 w-80 rounded-xl shadow-2xl overflow-hidden z-50"
-                  style={{ backgroundColor: "#064E3B", border: "1px solid rgba(245,223,146,0.4)" }}
+                  style={{ backgroundColor: "#064E3B", border: "1px solid rgba(232, 201, 108,0.4)" }}
                 >
                   <form
                     onSubmit={handleSearchSubmit}
                     className="flex items-center px-3 py-2 border-b"
-                    style={{ borderColor: "rgba(245,223,146,0.3)" }}
+                    style={{ borderColor: "rgba(232, 201, 108,0.3)" }}
                   >
-                    <svg className="w-4 h-4 mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="#F5DF92">
+                    <svg className="w-4 h-4 mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="#E8C96C">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
                     <input
@@ -341,10 +341,10 @@ export default function Navbar() {
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       className="flex-1 bg-transparent text-sm outline-none"
-                      style={{ color: "#FCF1D0" }}
+                      style={{ color: "#F2DEAA" }}
                     />
                     {searchQuery && (
-                      <button type="button" onClick={() => setSearchQuery("")} style={{ color: "#F5DF92" }}>✕</button>
+                      <button type="button" onClick={() => setSearchQuery("")} style={{ color: "#E8C96C" }}>✕</button>
                     )}
                   </form>
                   {searchResults.length > 0 && (
@@ -357,22 +357,22 @@ export default function Navbar() {
                         >
                           <img src={p.image} alt={p.name} className="w-10 h-10 object-cover rounded" />
                           <div>
-                            <p className="text-sm font-medium" style={{ color: "#FCF1D0" }}>{p.name}</p>
-                            <p className="text-xs" style={{ color: "#F5DF92" }}>₹{p.price.toLocaleString()}</p>
+                            <p className="text-sm font-medium" style={{ color: "#F2DEAA" }}>{p.name}</p>
+                            <p className="text-xs" style={{ color: "#E8C96C" }}>₹{p.price.toLocaleString()}</p>
                           </div>
                         </button>
                       ))}
                       <button
                         onClick={handleSearchSubmit}
                         className="w-full text-center py-2 text-xs tracking-wider hover:bg-white/5"
-                        style={{ color: "#F5DF92" }}
+                        style={{ color: "#E8C96C" }}
                       >
                         VIEW ALL RESULTS →
                       </button>
                     </div>
                   )}
                   {searchQuery.length > 1 && searchResults.length === 0 && (
-                    <p className="text-center py-4 text-sm" style={{ color: "#FCF1D0" }}>No results found</p>
+                    <p className="text-center py-4 text-sm" style={{ color: "#F2DEAA" }}>No results found</p>
                   )}
                 </div>
               )}
@@ -388,7 +388,7 @@ export default function Navbar() {
             {/* Mobile hamburger */}
             <button
               className="lg:hidden p-2 rounded-full hover:bg-white/10 transition-colors"
-              style={{ color: "#FCF1D0" }}
+              style={{ color: "#F2DEAA" }}
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Menu"
             >
@@ -409,7 +409,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div
         className={`lg:hidden overflow-hidden transition-all duration-300 ${mobileOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"}`}
-        style={{ backgroundColor: "#064E3B", borderTop: "1px solid rgba(245,223,146,0.2)" }}
+        style={{ backgroundColor: "#064E3B", borderTop: "1px solid rgba(232, 201, 108,0.2)" }}
       >
         <nav className="px-4 py-4 space-y-1">
           {navLinks.map((link) => (
@@ -419,7 +419,7 @@ export default function Navbar() {
                 end={link.to === "/"}
                 className={({ isActive }) =>
                   `block px-3 py-2.5 text-sm font-medium rounded-lg transition-colors ${
-                    isActive ? "text-[#F5DF92] bg-white/5" : "text-[#FCF1D0] hover:text-[#F5DF92] hover:bg-white/5"
+                    isActive ? "text-[#E8C96C] bg-white/5" : "text-[#F2DEAA] hover:text-[#E8C96C] hover:bg-white/5"
                   }`
                 }
                 onClick={() => !link.dropdown && setMobileOpen(false)}
@@ -433,7 +433,7 @@ export default function Navbar() {
                       key={item.to}
                       to={item.to}
                       className="block px-3 py-2 text-xs rounded-lg transition-colors"
-                      style={{ color: "rgba(252,241,208,0.75)" }}
+                      style={{ color: "rgba(242, 222, 170,0.75)" }}
                       onClick={() => setMobileOpen(false)}
                     >
                       {item.label}
@@ -444,7 +444,7 @@ export default function Navbar() {
             </div>
           ))}
           {/* Mobile quick links */}
-          <div className="pt-3 border-t flex gap-3" style={{ borderColor: "rgba(245,223,146,0.2)" }}>
+          <div className="pt-3 border-t flex gap-3" style={{ borderColor: "rgba(232, 201, 108,0.2)" }}>
             {[
               { label: "Wishlist", to: "/wishlist", count: wishlistCount },
               { label: "Cart", to: "/cart", count: cartCount },
@@ -454,14 +454,14 @@ export default function Navbar() {
                 key={item.label}
                 to={item.to}
                 className="relative flex items-center gap-1.5 px-3 py-2 text-sm rounded-lg"
-                style={{ color: "#FCF1D0" }}
+                style={{ color: "#F2DEAA" }}
                 onClick={() => setMobileOpen(false)}
               >
                 {item.label}
                 {item.count > 0 && (
                   <span
                     className="w-4 h-4 rounded-full text-[10px] flex items-center justify-center font-bold"
-                    style={{ backgroundColor: "#F5DF92", color: "#064E3B" }}
+                    style={{ backgroundColor: "#E8C96C", color: "#064E3B" }}
                   >
                     {item.count}
                   </span>

@@ -35,11 +35,11 @@ export default function GoldCalculator({ rates }) {
       <div className="px-6 py-5" style={{ backgroundColor: "#064E3B" }}>
         <h3
           className="text-xl font-semibold"
-          style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#FCF1D0" }}
+          style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#F2DEAA" }}
         >
           Gold Price Calculator
         </h3>
-        <p className="text-xs mt-1" style={{ color: "rgba(252,241,208,0.65)" }}>
+        <p className="text-xs mt-1" style={{ color: "rgba(242, 222, 170,0.65)" }}>
           Estimate your jewellery cost instantly
         </p>
       </div>
@@ -47,7 +47,7 @@ export default function GoldCalculator({ rates }) {
       <div className="p-6 space-y-5">
         {/* Purity */}
         <div>
-          <label className="mb-2 block text-xs font-semibold uppercase tracking-wider text-[#FCF1D0]/80">
+          <label className="mb-2 block text-xs font-semibold uppercase tracking-wider text-[#F2DEAA]/80">
             Gold Purity
           </label>
           <div className="flex gap-2">
@@ -58,7 +58,7 @@ export default function GoldCalculator({ rates }) {
                 className="flex-1 py-2.5 text-sm font-semibold rounded-lg border transition-all"
                 style={
                   form.purity === p
-                    ? { backgroundColor: "#064E3B", color: "#FCF1D0", borderColor: "#064E3B" }
+                    ? { backgroundColor: "#064E3B", color: "#F2DEAA", borderColor: "#064E3B" }
                     : { backgroundColor: "white", color: "#064E3B", borderColor: "#e5e7eb" }
                 }
               >
@@ -67,7 +67,7 @@ export default function GoldCalculator({ rates }) {
             ))}
           </div>
           {ratePerGram > 0 && (
-            <p className="mt-2 text-xs text-[#FCF1D0]/65">
+            <p className="mt-2 text-xs text-[#F2DEAA]/65">
               Current rate: {formatINR(ratePerGram)} / gram
             </p>
           )}
@@ -75,7 +75,7 @@ export default function GoldCalculator({ rates }) {
 
         {/* Weight */}
         <div>
-          <label className="mb-2 block text-xs font-semibold uppercase tracking-wider text-[#FCF1D0]/80">
+          <label className="mb-2 block text-xs font-semibold uppercase tracking-wider text-[#F2DEAA]/80">
             Weight (grams)
           </label>
           <input
@@ -85,13 +85,13 @@ export default function GoldCalculator({ rates }) {
             placeholder="e.g. 5.5"
             value={form.weight}
             onChange={(e) => update("weight", e.target.value)}
-            className="w-full rounded-lg border border-white/25 bg-white/10 px-4 py-3 text-sm text-[#FCF1D0] outline-none transition-colors placeholder:text-[#FCF1D0]/45 focus:border-[#F5DF92]"
+            className="w-full rounded-lg border border-white/25 bg-white/10 px-4 py-3 text-sm text-[#F2DEAA] outline-none transition-colors placeholder:text-[#F2DEAA]/45 focus:border-[#E8C96C]"
           />
         </div>
 
         {/* Making charges */}
         <div>
-          <label className="mb-2 block text-xs font-semibold uppercase tracking-wider text-[#FCF1D0]/80">
+          <label className="mb-2 block text-xs font-semibold uppercase tracking-wider text-[#F2DEAA]/80">
             Making Charges: {form.makingCharge}%
           </label>
           <input
@@ -101,9 +101,9 @@ export default function GoldCalculator({ rates }) {
             step="0.5"
             value={form.makingCharge}
             onChange={(e) => update("makingCharge", e.target.value)}
-            className="w-full accent-[#F5DF92]"
+            className="w-full accent-[#E8C96C]"
           />
-          <div className="mt-1 flex justify-between text-xs text-[#FCF1D0]/60">
+          <div className="mt-1 flex justify-between text-xs text-[#F2DEAA]/60">
             <span>5%</span>
             <span>30%</span>
           </div>
@@ -111,7 +111,7 @@ export default function GoldCalculator({ rates }) {
 
         {/* GST */}
         <div>
-          <label className="mb-2 block text-xs font-semibold uppercase tracking-wider text-[#FCF1D0]/80">
+          <label className="mb-2 block text-xs font-semibold uppercase tracking-wider text-[#F2DEAA]/80">
             GST: {form.gst}%
           </label>
           <div className="flex gap-2">
@@ -122,7 +122,7 @@ export default function GoldCalculator({ rates }) {
                 className="flex-1 py-2 text-sm rounded-lg border transition-all"
                 style={
                   parseFloat(form.gst) === g
-                    ? { backgroundColor: "#F5DF92", color: "#064E3B", borderColor: "#F5DF92" }
+                    ? { backgroundColor: "#E8C96C", color: "#064E3B", borderColor: "#E8C96C" }
                     : { backgroundColor: "white", color: "#064E3B", borderColor: "#e5e7eb" }
                 }
               >
@@ -136,7 +136,7 @@ export default function GoldCalculator({ rates }) {
           onClick={calculate}
           disabled={!form.weight}
           className="w-full py-3 rounded-lg font-semibold text-sm tracking-wider transition-all hover:opacity-90 active:scale-95 disabled:opacity-50"
-          style={{ backgroundColor: "#064E3B", color: "#FCF1D0" }}
+          style={{ backgroundColor: "#064E3B", color: "#F2DEAA" }}
         >
           CALCULATE PRICE
         </button>
@@ -149,7 +149,7 @@ export default function GoldCalculator({ rates }) {
           >
             <h4
               className="font-semibold text-base"
-              style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#FCF1D0" }}
+              style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#F2DEAA" }}
             >
               Price Breakdown
             </h4>
@@ -168,10 +168,10 @@ export default function GoldCalculator({ rates }) {
               { label: `GST (${form.gst}%)`, value: formatINR(result.gst), sub: true },
             ].map((row) => (
               <div key={row.label} className="flex justify-between items-center">
-                <span className={`text-sm ${row.sub ? "text-[#FCF1D0]/75" : "font-bold text-[#FCF1D0]"}`}>
+                <span className={`text-sm ${row.sub ? "text-[#F2DEAA]/75" : "font-bold text-[#F2DEAA]"}`}>
                   {row.label}
                 </span>
-                <span className={`text-sm ${row.sub ? "text-[#FCF1D0]/75" : "font-bold text-[#FCF1D0]"}`}>
+                <span className={`text-sm ${row.sub ? "text-[#F2DEAA]/75" : "font-bold text-[#F2DEAA]"}`}>
                   {row.value}
                 </span>
               </div>
@@ -179,17 +179,17 @@ export default function GoldCalculator({ rates }) {
 
             <div
               className="flex justify-between items-center pt-3 mt-3 border-t"
-              style={{ borderColor: "rgba(245,223,146,0.4)" }}
+              style={{ borderColor: "rgba(232, 201, 108,0.4)" }}
             >
-              <span className="font-bold" style={{ color: "#FCF1D0" }}>
+              <span className="font-bold" style={{ color: "#F2DEAA" }}>
                 Estimated Total
               </span>
-              <span className="text-lg font-bold" style={{ color: "#FCF1D0" }}>
+              <span className="text-lg font-bold" style={{ color: "#F2DEAA" }}>
                 {formatINR(result.total)}
               </span>
             </div>
 
-            <p className="pt-1 text-xs text-[#FCF1D0]/65">
+            <p className="pt-1 text-xs text-[#F2DEAA]/65">
               * Indicative price only. Actual price may vary based on design and store rates.
             </p>
           </div>

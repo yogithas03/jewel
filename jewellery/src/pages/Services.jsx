@@ -31,7 +31,7 @@ export default function Services() {
             alt="Exquisite diamond necklace and earrings set"
             className="h-full w-full object-cover object-[center_40%]"
             style={{ filter: "brightness(0.8) saturate(1.1)" }}
-          />
+          /> 
           {/* Subtle blend gradient on the image container */}
           <div
             aria-hidden="true"
@@ -55,16 +55,16 @@ export default function Services() {
 
         <div className="relative z-20 mx-auto w-full max-w-7xl">
           <div className="max-w-xl text-center sm:text-left">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-[#F5DF92]">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-[#E8C96C]">
               The Dikshi Promise
             </p>
             <h1
-              className="mt-2 text-3xl font-semibold leading-tight text-[#FCF1D0] sm:text-5xl"
+              className="mt-2 text-3xl font-semibold leading-tight text-[#F2DEAA] sm:text-5xl"
               style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
             >
               Care for Every Precious Moment
             </h1>
-            <p className="mx-auto mt-3 max-w-lg text-sm leading-6 text-[#FCF1D0]/80 sm:mx-0">
+            <p className="mx-auto mt-3 max-w-lg text-sm leading-6 text-[#F2DEAA]/80 sm:mx-0">
               Beyond beautiful jewellery, we offer trusted services to help you create, care for and celebrate the pieces you love.
             </p>
           </div>
@@ -83,7 +83,7 @@ export default function Services() {
             Our Jewellery Services
           </h2>
           <p className="mx-auto mt-2 max-w-2xl text-xs leading-5 text-[#31594D]/75">
-            Expert guidance and considered care for every stage of your jewellery journey.
+            Expert guidance and considered care for every stage of jewellery journey.
           </p>
         </div>
 
@@ -129,7 +129,7 @@ export default function Services() {
                 />
 
                   <div className="flex items-start justify-between gap-2">
-                    <span className="grid h-10 w-10 place-items-center rounded-full border border-[#D6C184]/60 bg-[#FCF1D0]/90 text-lg text-[#8B681B] shadow-sm">
+                    <span className="grid h-10 w-10 place-items-center rounded-full border border-[#D6C184]/60 bg-[#F2DEAA]/90 text-lg text-[#8B681B] shadow-sm">
                       {service.icon}
                     </span>
                     <span className="pt-1 text-[9px] font-semibold uppercase tracking-[0.16em] text-[#97721E]">
@@ -144,7 +144,7 @@ export default function Services() {
                     >
                       {service.title}
                     </h3>
-                    <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.13em] text-[#F5DF92]">
+                    <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.13em] text-[#E8C96C]">
                       {service.shortDesc}
                     </p>
                     <p className="mt-2 text-[11px] font-medium leading-[1.55] text-white/95">
@@ -163,7 +163,7 @@ export default function Services() {
 
                   <Link
                     to="/contact"
-                    className="mt-auto inline-flex w-fit items-center gap-1 pt-4 text-xs font-semibold text-white transition-colors hover:text-[#F5DF92]">
+                    className="mt-auto inline-flex w-fit items-center gap-1 pt-4 text-xs font-semibold text-white transition-colors hover:text-[#E8C96C]">
                     Enquire now
                     <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
                   </Link>
@@ -196,20 +196,20 @@ export default function Services() {
           />
           <div className="relative z-20 mx-auto flex w-full max-w-5xl flex-col items-center justify-between gap-5 text-center sm:flex-row sm:text-left">
             <div className="sm:ml-[35%]">
-              <p className="text-[9px] font-semibold uppercase tracking-[0.25em] text-[#F5DF92]">Your jewellery, our care</p>
+              <p className="text-[9px] font-semibold uppercase tracking-[0.25em] text-[#E8C96C]">Your jewellery, our care</p>
               <h2
-                className="mt-1 text-2xl font-semibold text-[#FCF1D0] sm:text-3xl"
+                className="mt-1 text-2xl font-semibold text-[#F2DEAA] sm:text-3xl"
                 style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
               >
                 Your Jewellery, Our Care
               </h2>
-              <p className="mt-1 text-xs text-[#FCF1D0]/75">
+              <p className="mt-1 text-xs text-[#F2DEAA]/75">
                 Expert service to keep your precious pieces as beautiful as your memories.
               </p>
             </div>
             <Link
               to="/contact"
-              className="inline-flex shrink-0 items-center gap-2 rounded-md bg-[#F5DF92] px-5 py-3 text-xs font-semibold text-[#064E3B] transition hover:bg-[#FCF1D0]"
+              className="inline-flex shrink-0 items-center gap-2 rounded-md bg-[#E8C96C] px-5 py-3 text-xs font-semibold text-[#064E3B] transition hover:bg-[#F2DEAA]"
             >
               Book a consultation <span aria-hidden="true">→</span>
             </Link>

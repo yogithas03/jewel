@@ -34,8 +34,8 @@ export default function Login() {
         {/* Brand overlay text */}
         <div className="absolute bottom-12 left-10 right-10 z-10">
           <div className="flex items-center gap-3 mb-4">
-            <div className="h-px w-8" style={{ backgroundColor: "#F5DF92" }} />
-            <span className="text-xs tracking-[0.3em] uppercase" style={{ color: "#F5DF92" }}>
+            <div className="h-px w-8" style={{ backgroundColor: "#E8C96C" }} />
+            <span className="text-xs tracking-[0.3em] uppercase" style={{ color: "#E8C96C" }}>
               Since 1992
             </span>
           </div>
@@ -73,7 +73,7 @@ export default function Login() {
         <div className="w-full max-w-md">
           {/* Heading */}
           <div className="mb-8">
-            <p className="text-xs tracking-[0.3em] uppercase mb-2" style={{ color: "#F5DF92" }}>
+            <p className="text-xs tracking-[0.3em] uppercase mb-2" style={{ color: "#E8C96C" }}>
               Welcome
             </p>
             <h1
@@ -101,7 +101,7 @@ export default function Login() {
                 className="flex-1 py-2.5 text-sm font-semibold rounded-lg transition-all duration-200 capitalize tracking-wide"
                 style={
                   tab === t
-                    ? { backgroundColor: "#F5DF92", color: "#092328" }
+                    ? { backgroundColor: "#E8C96C", color: "#092328" }
                     : { color: "rgba(240,247,242,0.55)" }
                 }
               >
@@ -148,7 +148,7 @@ function LoginForm() {
   if (submitted) {
     return (
       <div className="text-center py-8">
-        <div className="text-4xl mb-4" style={{ color: "#F5DF92" }}>✓</div>
+        <div className="text-4xl mb-4" style={{ color: "#E8C96C" }}>✓</div>
         <p className="text-base font-semibold" style={{ color: "#F0F7F2" }}>Signed in successfully!</p>
         <p className="text-sm mt-2" style={{ color: "rgba(240,247,242,0.55)" }}>
           Redirecting to your account…
@@ -185,11 +185,11 @@ function LoginForm() {
             type="checkbox"
             checked={form.remember}
             onChange={(e) => setForm(f => ({ ...f, remember: e.target.checked }))}
-            className="w-4 h-4 rounded accent-[#F5DF92]"
+            className="w-4 h-4 rounded accent-[#E8C96C]"
           />
           <span className="text-xs" style={{ color: "rgba(240,247,242,0.6)" }}>Remember me</span>
         </label>
-        <button type="button" className="text-xs hover:underline" style={{ color: "#F5DF92" }}>
+        <button type="button" className="text-xs hover:underline" style={{ color: "#E8C96C" }}>
           Forgot password?
         </button>
       </div>
@@ -197,7 +197,7 @@ function LoginForm() {
       <button
         type="submit"
         className="w-full py-4 rounded-xl font-semibold text-sm tracking-wider transition-all hover:opacity-90 active:scale-95"
-        style={{ backgroundColor: "#F5DF92", color: "#092328" }}
+        style={{ backgroundColor: "#E8C96C", color: "#092328" }}
       >
         SIGN IN
       </button>
@@ -262,14 +262,14 @@ function RegisterForm({ onSuccess }) {
 
       <p className="text-xs" style={{ color: "rgba(240,247,242,0.45)" }}>
         By creating an account you agree to our{" "}
-        <Link to="/terms" className="underline" style={{ color: "#F5DF92" }}>Terms</Link> &{" "}
-        <Link to="/privacy" className="underline" style={{ color: "#F5DF92" }}>Privacy Policy</Link>.
+        <Link to="/terms" className="underline" style={{ color: "#E8C96C" }}>Terms</Link> &{" "}
+        <Link to="/privacy" className="underline" style={{ color: "#E8C96C" }}>Privacy Policy</Link>.
       </p>
 
       <button
         type="submit"
         className="w-full py-4 rounded-xl font-semibold text-sm tracking-wider transition-all hover:opacity-90 active:scale-95"
-        style={{ backgroundColor: "#F5DF92", color: "#092328" }}
+        style={{ backgroundColor: "#E8C96C", color: "#092328" }}
       >
         CREATE ACCOUNT
       </button>
@@ -298,7 +298,7 @@ function authInput(error) {
     "w-full px-4 py-3 rounded-xl text-sm outline-none transition-all auth-input",
     error
       ? "border border-red-400 focus:border-red-400"
-      : "border border-white/10 focus:border-[#F5DF92]",
+      : "border border-white/10 focus:border-[#E8C96C]",
   ].join(" ");
 }
 
@@ -325,7 +325,7 @@ function SocialButtons() {
           className="flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-medium border transition-all hover:bg-white/10"
           style={{ borderColor: "rgba(255,255,255,0.12)", color: "#F0F7F2" }}
         >
-          <span className="font-bold" style={{ color: "#F5DF92" }}>{s.icon}</span>
+          <span className="font-bold" style={{ color: "#E8C96C" }}>{s.icon}</span>
           {s.label}
         </button>
       ))}

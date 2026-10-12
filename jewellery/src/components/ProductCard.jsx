@@ -50,7 +50,7 @@ export default function ProductCard({ product }) {
         {/* Badges */}
         <div className="absolute top-3 left-3 flex flex-col gap-1.5">
           {(product.isNew || product.badge === "New") && (
-            <span className="px-2 py-0.5 text-xs font-semibold rounded-full bg-[#064E3B] text-[#FCF1D0]">NEW</span>
+            <span className="px-2 py-0.5 text-xs font-semibold rounded-full bg-[#064E3B] text-[#F2DEAA]">NEW</span>
           )}
           {(discount || product.discount) && (
             <span className="px-2 py-0.5 text-xs font-semibold rounded-full" style={{ backgroundColor: "#D79B01", color: "#064E3B" }}>
@@ -128,13 +128,13 @@ export default function ProductCard({ product }) {
             <button
               onClick={handleAddToCart}
               className="flex-1 py-2 text-xs font-semibold tracking-wider rounded-lg transition-all duration-200 hover:opacity-90 active:scale-95"
-              style={{ backgroundColor: "#064E3B", color: "#FCF1D0" }}
+              style={{ backgroundColor: "#064E3B", color: "#F2DEAA" }}
             >
               ADD TO CART
             </button>
             <Link
               to={`/product/${product.id}`}
-              className="px-3 py-2 text-xs font-semibold tracking-wider rounded-lg border transition-all duration-200 hover:bg-[#064E3B] hover:text-[#FCF1D0]"
+              className="px-3 py-2 text-xs font-semibold tracking-wider rounded-lg border transition-all duration-200 hover:bg-[#064E3B] hover:text-[#F2DEAA]"
               style={{ borderColor: "#064E3B", color: "#064E3B" }}
             >
               VIEW

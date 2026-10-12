@@ -15,7 +15,7 @@ export default function Cart() {
   if (cartItems.length === 0) {
     return (
       <div className="pt-20 lg:pt-24 min-h-screen flex flex-col items-center justify-center text-center px-4">
-        <div className="text-6xl mb-6" style={{ color: "#F5DF92" }}>🛍</div>
+        <div className="text-6xl mb-6" style={{ color: "#E8C96C" }}>🛍</div>
         <h2
           className="text-2xl sm:text-3xl font-semibold mb-3"
           style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#064E3B" }}
@@ -28,7 +28,7 @@ export default function Cart() {
         <Link
           to="/jewellery"
           className="px-8 py-4 rounded-full font-semibold text-sm tracking-wider transition-all hover:opacity-90"
-          style={{ backgroundColor: "#064E3B", color: "#FCF1D0" }}
+          style={{ backgroundColor: "#064E3B", color: "#F2DEAA" }}
         >
           SHOP NOW
         </Link>
@@ -72,12 +72,12 @@ export default function Cart() {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-start justify-between gap-2">
                     <div>
-                      <p className="text-xs uppercase tracking-wider mb-1" style={{ color: "#F5DF92" }}>
+                      <p className="text-xs uppercase tracking-wider mb-1" style={{ color: "#E8C96C" }}>
                         {item.metal} · {item.purity}
                       </p>
                       <Link to={`/product/${item.id}`}>
                         <h3
-                          className="text-sm sm:text-base font-semibold leading-snug hover:text-[#F5DF92] transition-colors"
+                          className="text-sm sm:text-base font-semibold leading-snug hover:text-[#E8C96C] transition-colors"
                           style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#064E3B" }}
                         >
                           {item.name}
@@ -161,7 +161,7 @@ export default function Cart() {
 
                 <div
                   className="flex justify-between font-bold text-base pt-4 border-t"
-                  style={{ color: "#064E3B", borderColor: "rgba(245,223,146,0.3)" }}
+                  style={{ color: "#064E3B", borderColor: "rgba(232, 201, 108,0.3)" }}
                 >
                   <span>Total</span>
                   <span>₹{(total + (cartSubtotal >= 5000 ? 0 : 150)).toLocaleString()}</span>
@@ -171,7 +171,7 @@ export default function Cart() {
               {cartSubtotal < 5000 && (
                 <div
                   className="mt-4 p-3 rounded-lg text-xs"
-                  style={{ backgroundcolor: "#FCF1D0", color: "#064E3B" }}
+                  style={{ backgroundcolor: "#F2DEAA", color: "#064E3B" }}
                 >
                   Add ₹{(5000 - cartSubtotal).toLocaleString()} more for FREE shipping!
                 </div>
@@ -179,7 +179,7 @@ export default function Cart() {
 
               <button
                 className="w-full mt-6 py-4 rounded-full font-semibold text-sm tracking-wider transition-all hover:opacity-90 active:scale-95"
-                style={{ backgroundColor: "#064E3B", color: "#FCF1D0" }}
+                style={{ backgroundColor: "#064E3B", color: "#F2DEAA" }}
                 onClick={() => navigate("/checkout")}
               >
                 PROCEED TO CHECKOUT
@@ -188,7 +188,7 @@ export default function Cart() {
               <Link
                 to="/jewellery"
                 className="block text-center mt-4 text-sm underline"
-                style={{ color: "#F5DF92" }}
+                style={{ color: "#E8C96C" }}
               >
                 Continue Shopping
               </Link>

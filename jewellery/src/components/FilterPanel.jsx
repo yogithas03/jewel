@@ -37,7 +37,7 @@ export default function FilterPanel({ filters, setFilters, metal }) {
         <button
           onClick={() => setFilters({ purity: "All", minPrice: "", maxPrice: "", occasion: "All", gender: "All", for: "All", sort: "popular" })}
           className="text-xs underline"
-          style={{ color: "#F5DF92" }}
+          style={{ color: "#E8C96C" }}
         >
           Clear all
         </button>
@@ -51,14 +51,14 @@ export default function FilterPanel({ filters, setFilters, metal }) {
             placeholder="Min ₹"
             value={filters.minPrice}
             onChange={(e) => update("minPrice", e.target.value)}
-            className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 outline-none focus:border-[#F5DF92] transition-colors"
+            className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 outline-none focus:border-[#E8C96C] transition-colors"
           />
           <input
             type="number"
             placeholder="Max ₹"
             value={filters.maxPrice}
             onChange={(e) => update("maxPrice", e.target.value)}
-            className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 outline-none focus:border-[#F5DF92] transition-colors"
+            className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 outline-none focus:border-[#E8C96C] transition-colors"
           />
         </div>
       </FilterSection>
@@ -73,7 +73,7 @@ export default function FilterPanel({ filters, setFilters, metal }) {
               className="px-3 py-1.5 text-xs rounded-full border transition-all"
               style={
                 filters.purity === p
-                  ? { backgroundColor: "#064E3B", color: "#FCF1D0", borderColor: "#064E3B" }
+                  ? { backgroundColor: "#064E3B", color: "#F2DEAA", borderColor: "#064E3B" }
                   : { backgroundColor: "white", color: "#064E3B", borderColor: "#e5e7eb" }
               }
             >
@@ -93,7 +93,7 @@ export default function FilterPanel({ filters, setFilters, metal }) {
               className="px-3 py-1.5 text-xs rounded-full border transition-all"
               style={
                 filters.occasion === o
-                  ? { backgroundColor: "#F5DF92", color: "#064E3B", borderColor: "#F5DF92" }
+                  ? { backgroundColor: "#E8C96C", color: "#064E3B", borderColor: "#E8C96C" }
                   : { backgroundColor: "white", color: "#064E3B", borderColor: "#e5e7eb" }
               }
             >
@@ -113,7 +113,7 @@ export default function FilterPanel({ filters, setFilters, metal }) {
               className="px-3 py-1.5 text-xs rounded-full border transition-all"
               style={
                 (filters.gender === g || filters.for === g)
-                  ? { backgroundColor: "#064E3B", color: "#FCF1D0", borderColor: "#064E3B" }
+                  ? { backgroundColor: "#064E3B", color: "#F2DEAA", borderColor: "#064E3B" }
                   : { backgroundColor: "white", color: "#064E3B", borderColor: "#e5e7eb" }
               }
             >
@@ -128,7 +128,7 @@ export default function FilterPanel({ filters, setFilters, metal }) {
         <select
           value={filters.sort}
           onChange={(e) => update("sort", e.target.value)}
-          className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 outline-none focus:border-[#F5DF92] bg-white"
+          className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 outline-none focus:border-[#E8C96C] bg-white"
           style={{ color: "#064E3B" }}
         >
           <option value="popular">Popular</option>

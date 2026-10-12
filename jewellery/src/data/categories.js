@@ -120,7 +120,7 @@ export const categories = [
 ];
 
 export const shopCategories = [
-  { label: "Gold", route: "/shop/gold", color: "#F5DF92" },
+  { label: "Gold", route: "/shop/gold", color: "#E8C96C" },
   { label: "Diamond", route: "/shop/diamond", color: "#B0C4DE" },
   { label: "Silver", route: "/shop/silver", color: "#A8A9AD" },
   { label: "Platinum", route: "/shop/platinum", color: "#8E8E8E" },

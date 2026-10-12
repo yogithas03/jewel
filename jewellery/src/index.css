@@ -5,9 +5,9 @@
   --color-navy: #064E3B;
   --color-teal: #0F766E;
   --color-green: #064E3B;
-  --color-sage: #F5DF92;
-  --color-gold: #F5DF92;
-  --color-cream: #FCF1D0;
+  --color-sage: #E8C96C;
+  --color-gold: #E8C96C;
+  --color-cream: #F2DEAA;
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans: 'Inter', system-ui, sans-serif;
 }
@@ -79,26 +79,26 @@
     background-color: #064E3B;
   }
   .text-sage {
-    color: #F5DF92;
+    color: #E8C96C;
   }
   .bg-sage {
-    background-color: #F5DF92;
+    background-color: #E8C96C;
   }
   .text-gold {
-    color: #F5DF92;
+    color: #E8C96C;
   }
   .bg-gold {
-    background-color: #F5DF92;
+    background-color: #E8C96C;
   }
   .border-gold {
-    border-color: #F5DF92;
+    border-color: #E8C96C;
   }
   /* Light cream surface */
   .bg-cream {
-    background-color: #FCF1D0;
+    background-color: #F2DEAA;
   }
   .text-cream {
-    color: #FCF1D0;
+    color: #F2DEAA;
   }
 }
 
@@ -129,10 +129,10 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #FCF1D0;
+  background: #F2DEAA;
 }
 ::-webkit-scrollbar-thumb {
-  background: #F5DF92;
+  background: #E8C96C;
   border-radius: 3px;
 }
 

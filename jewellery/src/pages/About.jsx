@@ -29,14 +29,14 @@ export default function About() {
           <div className="absolute inset-0 bg-gradient-to-r from-[#064E3B] via-[#064E3B]/70 to-transparent" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-20">
-          <p className="text-xs tracking-[0.35em] mb-4" style={{ color: "#F5DF92" }}>OUR STORY</p>
+          <p className="text-xs tracking-[0.35em] mb-4" style={{ color: "#E8C96C" }}>OUR STORY</p>
           <h1
             className="text-4xl sm:text-5xl lg:text-6xl font-semibold mb-6 max-w-2xl leading-tight"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#FCF1D0" }}
+            style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#F2DEAA" }}
           >
             The Art of Timeless Jewellery
           </h1>
-          <p className="text-base max-w-xl leading-relaxed" style={{ color: "rgba(252,241,208,0.75)" }}>
+          <p className="text-base max-w-xl leading-relaxed" style={{ color: "rgba(242, 222, 170,0.75)" }}>
             For over three decades, Dikshi Jewellery has crafted pieces that transcend trends and become heirlooms — passed down with love, worn with pride.
           </p>
         </div>
@@ -47,8 +47,8 @@ export default function About() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="h-px w-8" style={{ backgroundColor: "#F5DF92" }} />
-              <span className="text-xs tracking-[0.3em] uppercase" style={{ color: "#F5DF92" }}>Our Story</span>
+              <div className="h-px w-8" style={{ backgroundColor: "#E8C96C" }} />
+              <span className="text-xs tracking-[0.3em] uppercase" style={{ color: "#E8C96C" }}>Our Story</span>
             </div>
             <h2
               className="text-3xl sm:text-4xl font-semibold mb-6"
@@ -80,21 +80,21 @@ export default function About() {
               className="absolute -bottom-6 -left-6 rounded-2xl p-6 shadow-2xl max-w-xs"
               style={{ backgroundColor: "#064E3B" }}
             >
-              <p className="text-3xl font-bold" style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#F5DF92" }}>30+</p>
-              <p className="text-sm mt-1" style={{ color: "rgba(252,241,208,0.85)" }}>Years of trusted craftsmanship</p>
+              <p className="text-3xl font-bold" style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#E8C96C" }}>30+</p>
+              <p className="text-sm mt-1" style={{ color: "rgba(242, 222, 170,0.85)" }}>Years of trusted craftsmanship</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Values */}
-      <section className="py-20 px-4 sm:px-6" style={{ backgroundcolor: "#FCF1D0" }}>
+      <section className="py-20 px-4 sm:px-6" style={{ backgroundcolor: "#F2DEAA" }}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-3 mb-3">
-              <div className="h-px w-8" style={{ backgroundColor: "#F5DF92" }} />
-              <span className="text-xs tracking-[0.3em] uppercase" style={{ color: "#F5DF92" }}>What We Stand For</span>
-              <div className="h-px w-8" style={{ backgroundColor: "#F5DF92" }} />
+              <div className="h-px w-8" style={{ backgroundColor: "#E8C96C" }} />
+              <span className="text-xs tracking-[0.3em] uppercase" style={{ color: "#E8C96C" }}>What We Stand For</span>
+              <div className="h-px w-8" style={{ backgroundColor: "#E8C96C" }} />
             </div>
             <h2
               className="text-3xl sm:text-4xl font-semibold"
@@ -108,7 +108,7 @@ export default function About() {
               <div key={v.title} className="text-center">
                 <div
                   className="w-16 h-16 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-5"
-                  style={{ backgroundColor: "#064E3B", color: "#F5DF92" }}
+                  style={{ backgroundColor: "#064E3B", color: "#E8C96C" }}
                 >
                   {v.icon}
                 </div>
@@ -130,9 +130,9 @@ export default function About() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-3 mb-3">
-              <div className="h-px w-8" style={{ backgroundColor: "#F5DF92" }} />
-              <span className="text-xs tracking-[0.3em] uppercase" style={{ color: "#F5DF92" }}>Our Journey</span>
-              <div className="h-px w-8" style={{ backgroundColor: "#F5DF92" }} />
+              <div className="h-px w-8" style={{ backgroundColor: "#E8C96C" }} />
+              <span className="text-xs tracking-[0.3em] uppercase" style={{ color: "#E8C96C" }}>Our Journey</span>
+              <div className="h-px w-8" style={{ backgroundColor: "#E8C96C" }} />
             </div>
             <h2
               className="text-3xl sm:text-4xl font-semibold"
@@ -142,7 +142,7 @@ export default function About() {
             </h2>
           </div>
           <div className="relative">
-            <div className="absolute left-12 top-0 bottom-0 w-px" style={{ backgroundColor: "rgba(245,223,146,0.3)" }} />
+            <div className="absolute left-12 top-0 bottom-0 w-px" style={{ backgroundColor: "rgba(232, 201, 108,0.3)" }} />
             <div className="space-y-8">
               {milestones.map((m) => (
                 <div key={m.year} className="flex gap-6 items-start">
@@ -151,13 +151,13 @@ export default function About() {
                   >
                     <span
                       className="text-sm font-bold block"
-                      style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#F5DF92" }}
+                      style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#E8C96C" }}
                     >
                       {m.year}
                     </span>
                     <div
                       className="absolute right-[-22px] top-2 w-3 h-3 rounded-full border-2 bg-white"
-                      style={{ borderColor: "#F5DF92" }}
+                      style={{ borderColor: "#E8C96C" }}
                     />
                   </div>
                   <div className="flex-1 pb-8">
@@ -181,25 +181,25 @@ export default function About() {
         <div className="max-w-3xl mx-auto text-center">
           <h3
             className="text-3xl sm:text-4xl font-semibold mb-5"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#FCF1D0" }}
+            style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#F2DEAA" }}
           >
             Your Story Deserves Our Finest
           </h3>
-          <p className="text-sm mb-8 max-w-xl mx-auto" style={{ color: "rgba(252,241,208,0.70)" }}>
+          <p className="text-sm mb-8 max-w-xl mx-auto" style={{ color: "rgba(242, 222, 170,0.70)" }}>
             Whether you're celebrating a milestone or simply treating yourself, we're here to help you find — or create — the perfect piece.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               to="/jewellery"
               className="px-8 py-4 rounded-full font-semibold text-sm tracking-wider transition-all hover:scale-105"
-              style={{ backgroundColor: "#F5DF92", color: "#064E3B" }}
+              style={{ backgroundColor: "#E8C96C", color: "#064E3B" }}
             >
               SHOP NOW
             </Link>
             <Link
               to="/contact"
               className="px-8 py-4 rounded-full font-semibold text-sm tracking-wider border transition-all hover:bg-white/10"
-              style={{ borderColor: "rgba(252,241,208,0.45)", color: "#FCF1D0" }}
+              style={{ borderColor: "rgba(242, 222, 170,0.45)", color: "#F2DEAA" }}
             >
               CONTACT US
             </Link>

@@ -11,11 +11,11 @@ const SectionHeader = ({ eyebrow, title, subtitle, center = false }) => (
   <div className={`mb-10 ${center ? "text-center" : ""}`}>
     {eyebrow && (
       <div className={`flex items-center gap-3 mb-3 ${center ? "justify-center" : ""}`}>
-        <div className="h-px w-8" style={{ backgroundColor: "#F5DF92" }} />
-        <span className="text-xs tracking-[0.3em] font-medium uppercase" style={{ color: "#F5DF92" }}>
+        <div className="h-px w-8" style={{ backgroundColor: "#E8C96C" }} />
+        <span className="text-xs tracking-[0.3em] font-medium uppercase" style={{ color: "#E8C96C" }}>
           {eyebrow}
         </span>
-        <div className="h-px w-8" style={{ backgroundColor: "#F5DF92" }} />
+        <div className="h-px w-8" style={{ backgroundColor: "#E8C96C" }} />
       </div>
     )}
     <h2
@@ -43,7 +43,7 @@ export default function Home() {
       {/* ── Marquee strip — fully outside Hero, no z-index conflict ── */}
       <div
         style={{
-          backgroundColor: "#F5DF92",
+          backgroundColor: "#E8C96C",
           overflow: "hidden",
           position: "relative",
           zIndex: 1,
@@ -85,7 +85,7 @@ export default function Home() {
         <div className="text-center mt-8">
           <Link
             to="/jewellery"
-            className="inline-flex items-center gap-2 px-8 py-3 rounded-full text-sm font-semibold tracking-wider border transition-all hover:bg-[#064E3B] hover:text-[#FCF1D0]"
+            className="inline-flex items-center gap-2 px-8 py-3 rounded-full text-sm font-semibold tracking-wider border transition-all hover:bg-[#064E3B] hover:text-[#F2DEAA]"
             style={{ borderColor: "#064E3B", color: "#064E3B" }}
           >
             VIEW ALL CATEGORIES
@@ -97,10 +97,10 @@ export default function Home() {
       <section style={{ backgroundColor: "#064E3B" }} className="py-10 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
-            <p className="text-xs tracking-widest mb-1" style={{ color: "#F5DF92" }}>LIVE RATES</p>
+            <p className="text-xs tracking-widest mb-1" style={{ color: "#E8C96C" }}>LIVE RATES</p>
             <h3
               className="text-2xl font-semibold"
-              style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#FCF1D0" }}
+              style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#F2DEAA" }}
             >
               Today's Gold Rate
             </h3>
@@ -112,15 +112,15 @@ export default function Home() {
               { label: "18K Gold", rate: "₹5,437/g" },
             ].map((r) => (
               <div key={r.label} className="text-center">
-                <p className="text-xs tracking-wider mb-1" style={{ color: "rgba(252,241,208,0.65)" }}>{r.label}</p>
-                <p className="text-xl font-bold" style={{ color: "#F5DF92" }}>{r.rate}</p>
+                <p className="text-xs tracking-wider mb-1" style={{ color: "rgba(242, 222, 170,0.65)" }}>{r.label}</p>
+                <p className="text-xl font-bold" style={{ color: "#E8C96C" }}>{r.rate}</p>
               </div>
             ))}
           </div>
           <Link
             to="/gold-rate"
             className="shrink-0 px-6 py-3 rounded-full text-sm font-semibold tracking-wider transition-all hover:opacity-90"
-            style={{ backgroundColor: "#F5DF92", color: "#064E3B" }}
+            style={{ backgroundColor: "#E8C96C", color: "#064E3B" }}
           >
             CHECK FULL RATES
           </Link>
@@ -131,7 +131,7 @@ export default function Home() {
       <section className="py-16 sm:py-20 px-4 sm:px-6 max-w-7xl mx-auto">
         <div className="flex items-end justify-between mb-10">
           <SectionHeader eyebrow="Top Picks" title="Best Sellers" />
-          <Link to="/shop/gold" className="text-sm font-medium underline" style={{ color: "#F5DF92" }}>
+          <Link to="/shop/gold" className="text-sm font-medium underline" style={{ color: "#E8C96C" }}>
             View all →
           </Link>
         </div>
@@ -143,12 +143,12 @@ export default function Home() {
       </section>
 
       {/* ── Premium Feature Banner ── */}
-      <section className="py-16 px-4 sm:px-6" style={{ backgroundColor: "#FCF1D0" }}>
+      <section className="py-16 px-4 sm:px-6" style={{ backgroundColor: "#F2DEAA" }}>
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="h-px w-8" style={{ backgroundColor: "#F5DF92" }} />
-              <span className="text-xs tracking-[0.3em] font-medium uppercase" style={{ color: "#F5DF92" }}>
+              <div className="h-px w-8" style={{ backgroundColor: "#E8C96C" }} />
+              <span className="text-xs tracking-[0.3em] font-medium uppercase" style={{ color: "#E8C96C" }}>
                 Bridal 2024
               </span>
             </div>
@@ -164,7 +164,7 @@ export default function Home() {
             <Link
               to="/jewellery/bridal"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-sm tracking-wider transition-all hover:scale-105"
-              style={{ backgroundColor: "#064E3B", color: "#FCF1D0" }}
+              style={{ backgroundColor: "#064E3B", color: "#F2DEAA" }}
             >
               EXPLORE BRIDAL
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -194,7 +194,7 @@ export default function Home() {
       <section className="py-16 sm:py-20 px-4 sm:px-6 max-w-7xl mx-auto">
         <div className="flex items-end justify-between mb-10">
           <SectionHeader eyebrow="Just In" title="New Arrivals" />
-          <Link to="/shop/gold" className="text-sm font-medium underline" style={{ color: "#F5DF92" }}>
+          <Link to="/shop/gold" className="text-sm font-medium underline" style={{ color: "#E8C96C" }}>
             View all →
           </Link>
         </div>
@@ -215,7 +215,7 @@ export default function Home() {
             { icon: "✧", label: "Free Cleaning", desc: "Annual cleaning service" },
           ].map((item) => (
             <div key={item.label} className="flex items-start gap-3">
-              <span className="text-xl mt-0.5" style={{ color: "#F5DF92" }}>{item.icon}</span>
+              <span className="text-xl mt-0.5" style={{ color: "#E8C96C" }}>{item.icon}</span>
               <div>
                 <p className="text-sm font-semibold" style={{ color: "#064E3B" }}>{item.label}</p>
                 <p className="text-xs text-gray-500 mt-0.5">{item.desc}</p>
@@ -229,7 +229,7 @@ export default function Home() {
       <section className="py-16 sm:py-20 px-4 sm:px-6 max-w-7xl mx-auto">
         <div className="flex items-end justify-between mb-10">
           <SectionHeader eyebrow="What's Hot" title="Trending Now" />
-          <Link to="/shop/gold" className="text-sm font-medium underline" style={{ color: "#F5DF92" }}>
+          <Link to="/shop/gold" className="text-sm font-medium underline" style={{ color: "#E8C96C" }}>
             View all →
           </Link>
         </div>
@@ -243,20 +243,20 @@ export default function Home() {
       {/* ── About teaser ── */}
       <section style={{ backgroundColor: "#064E3B" }} className="py-16 sm:py-24 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="text-3xl mb-6" style={{ color: "#F5DF92" }}>✦</div>
+          <div className="text-3xl mb-6" style={{ color: "#E8C96C" }}>✦</div>
           <h2
             className="text-3xl sm:text-4xl lg:text-5xl font-semibold mb-6"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#FCF1D0" }}
+            style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#F2DEAA" }}
           >
             The Art of Timeless Jewellery
           </h2>
-          <p className="text-base leading-relaxed max-w-2xl mx-auto mb-10" style={{ color: "rgba(252,241,208,0.75)" }}>
+          <p className="text-base leading-relaxed max-w-2xl mx-auto mb-10" style={{ color: "rgba(242, 222, 170,0.75)" }}>
             Dikshi Jewellery was born from a passion for craft and an eye for beauty. Since 1992, we have been creating pieces that transcend trends and become heirlooms.
           </p>
           <Link
             to="/about"
             className="inline-flex items-center gap-2 px-8 py-3 rounded-full text-sm font-semibold tracking-wider border transition-all hover:bg-white/10"
-            style={{ borderColor: "rgba(245,223,146,0.6)", color: "#F5DF92" }}
+            style={{ borderColor: "rgba(232, 201, 108,0.6)", color: "#E8C96C" }}
           >
             OUR STORY →
           </Link>

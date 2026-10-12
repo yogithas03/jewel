@@ -11,7 +11,7 @@ export default function Toast({ message, type = "success", onClose }) {
       className="fixed bottom-6 right-6 z-[100] flex items-center gap-3 px-5 py-3 rounded-xl shadow-2xl animate-fade-up"
       style={{
         backgroundColor: type === "success" ? "#064E3B" : "#dc2626",
-        color: "#FCF1D0",
+        color: "#F2DEAA",
         minWidth: "220px",
       }}
     >

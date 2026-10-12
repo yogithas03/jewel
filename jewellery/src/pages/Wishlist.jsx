@@ -36,7 +36,7 @@ export default function Wishlist() {
         <Link
           to="/jewellery"
           className="px-8 py-4 rounded-full font-semibold text-sm tracking-wider transition-all hover:opacity-90"
-          style={{ backgroundColor: "#064E3B", color: "#FCF1D0" }}
+          style={{ backgroundColor: "#064E3B", color: "#F2DEAA" }}
         >
           EXPLORE JEWELLERY
         </Link>
@@ -80,12 +80,12 @@ export default function Wishlist() {
               </Link>
 
               <div className="p-4">
-                <p className="text-xs uppercase tracking-wider mb-1" style={{ color: "#F5DF92" }}>
+                <p className="text-xs uppercase tracking-wider mb-1" style={{ color: "#E8C96C" }}>
                   {item.metal} · {item.purity}
                 </p>
                 <Link to={`/product/${item.id}`}>
                   <h3
-                    className="text-sm font-semibold leading-snug mb-3 hover:text-[#F5DF92] transition-colors"
+                    className="text-sm font-semibold leading-snug mb-3 hover:text-[#E8C96C] transition-colors"
                     style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#064E3B" }}
                   >
                     {item.name}
@@ -97,7 +97,7 @@ export default function Wishlist() {
                 <button
                   onClick={() => handleMoveToCart(item)}
                   className="w-full py-2.5 rounded-lg text-xs font-semibold tracking-wider transition-all hover:opacity-90"
-                  style={{ backgroundColor: "#064E3B", color: "#FCF1D0" }}
+                  style={{ backgroundColor: "#064E3B", color: "#F2DEAA" }}
                 >
                   MOVE TO CART
                 </button>

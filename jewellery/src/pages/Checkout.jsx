@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
+import { fireColorPaperConfetti } from "../utils/confetti";
 
 const INDIAN_STATES = [
   "Andhra Pradesh",
@@ -330,6 +331,8 @@ export default function Checkout() {
     }
 
     setIsSubmitting(true);
+    // 🎊 Fire vibrant colorful paper confetti celebration!
+    fireColorPaperConfetti();
 
     const orderPayload = {
       customer: {
@@ -436,19 +439,20 @@ export default function Checkout() {
       // Clear the cart
       clearCart();
 
-      // Navigate to order confirmation
-      navigate(`/order-confirmation/${createdOrder.orderId}`, { state: { order: createdOrder } });
+      // Short delay allowing customer to witness the festive colored paper confetti flurry
+      setTimeout(() => {
+        navigate(`/order-confirmation/${createdOrder.orderId}`, { state: { order: createdOrder } });
+      }, 1200);
     } catch (err) {
       console.error("Order placement error:", err);
       setSubmitError("We were unable to process your order at this moment. Please check your connection and try again.");
-    } finally {
       setIsSubmitting(false);
     }
   };
 
   if (cartItems.length === 0) {
     return (
-      <div className="pt-24 lg:pt-32 min-h-screen flex flex-col items-center justify-center text-center px-4" style={{ backgroundColor: "#FCF1D0" }}>
+      <div className="pt-24 lg:pt-32 min-h-screen flex flex-col items-center justify-center text-center px-4" style={{ backgroundColor: "#F2DEAA" }}>
         <p className="text-5xl mb-4" style={{ color: "#064E3B" }}>✦</p>
         <h2 className="text-2xl sm:text-3xl font-semibold mb-3" style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#064E3B" }}>
           Your Cart is Empty
@@ -459,7 +463,7 @@ export default function Checkout() {
         <Link
           to="/jewellery"
           className="px-8 py-3.5 rounded-full font-semibold text-sm tracking-wider transition-all hover:opacity-90"
-          style={{ backgroundColor: "#064E3B", color: "#FCF1D0" }}
+          style={{ backgroundColor: "#064E3B", color: "#F2DEAA" }}
         >
           EXPLORE JEWELLERY
         </Link>
@@ -523,7 +527,7 @@ export default function Checkout() {
             {/* 1. Delivery Information Card */}
             <div className="bg-white rounded-2xl border border-gray-100 p-6 sm:p-7 shadow-sm">
               <div className="flex items-center gap-3 mb-6 pb-4 border-b border-gray-100">
-                <span className="w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm bg-[#064E3B] text-[#FCF1D0]">
+                <span className="w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm bg-[#064E3B] text-[#F2DEAA]">
                   1
                 </span>
                 <div>
@@ -752,7 +756,7 @@ export default function Checkout() {
             {/* 2. Delivery Options Card */}
             <div className="bg-white rounded-2xl border border-gray-100 p-6 sm:p-7 shadow-sm">
               <div className="flex items-center gap-3 mb-6 pb-4 border-b border-gray-100">
-                <span className="w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm bg-[#064E3B] text-[#FCF1D0]">
+                <span className="w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm bg-[#064E3B] text-[#F2DEAA]">
                   2
                 </span>
                 <div>
@@ -831,7 +835,7 @@ export default function Checkout() {
                       <div>
                         <div className="flex items-center gap-2">
                           <span className="text-sm font-bold text-gray-900">Express Insured Air Shipping</span>
-                          <span className="text-xs px-2 py-0.5 rounded-full font-semibold" style={{ backgroundColor: "#F5DF92", color: "#064E3B" }}>
+                          <span className="text-xs px-2 py-0.5 rounded-full font-semibold" style={{ backgroundColor: "#E8C96C", color: "#064E3B" }}>
                             FASTEST
                           </span>
                         </div>
@@ -856,7 +860,7 @@ export default function Checkout() {
             {/* 3. Payment Methods Card */}
             <div className="bg-white rounded-2xl border border-gray-100 p-6 sm:p-7 shadow-sm">
               <div className="flex items-center gap-3 mb-6 pb-4 border-b border-gray-100">
-                <span className="w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm bg-[#064E3B] text-[#FCF1D0]">
+                <span className="w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm bg-[#064E3B] text-[#F2DEAA]">
                   3
                 </span>
                 <div>
@@ -926,7 +930,7 @@ export default function Checkout() {
                           alert("Please enter a valid UPI ID (e.g., username@bank)");
                         }
                       }}
-                      className="px-4 py-2.5 rounded-xl text-xs font-semibold bg-[#064E3B] text-[#FCF1D0] hover:opacity-90"
+                      className="px-4 py-2.5 rounded-xl text-xs font-semibold bg-[#064E3B] text-[#F2DEAA] hover:opacity-90"
                     >
                       {upiVerified ? "✓ Verified" : "Verify"}
                     </button>
@@ -1101,7 +1105,7 @@ export default function Checkout() {
                   <div key={item.id} className="py-3.5 flex gap-3.5 items-center">
                     <div className="relative w-16 h-16 rounded-xl overflow-hidden bg-[#0D3D38] shrink-0 border border-gray-100">
                       <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
-                      <span className="absolute top-0 right-0 px-1.5 py-0.5 rounded-bl-lg text-[10px] font-bold bg-[#064E3B] text-[#FCF1D0]">
+                      <span className="absolute top-0 right-0 px-1.5 py-0.5 rounded-bl-lg text-[10px] font-bold bg-[#064E3B] text-[#F2DEAA]">
                         ×{item.quantity}
                       </span>
                     </div>
@@ -1160,7 +1164,7 @@ export default function Checkout() {
                       type="button"
                       onClick={() => handleApplyCoupon()}
                       className="px-4 py-2 rounded-xl text-xs font-bold tracking-wider transition-all hover:opacity-90"
-                      style={{ backgroundColor: "#064E3B", color: "#FCF1D0" }}
+                      style={{ backgroundColor: "#064E3B", color: "#F2DEAA" }}
                     >
                       APPLY
                     </button>
@@ -1190,7 +1194,7 @@ export default function Checkout() {
                         key={c.code}
                         type="button"
                         onClick={() => handleApplyCoupon(c.code)}
-                        className="px-2.5 py-1 rounded-lg text-[10px] font-semibold tracking-wider border border-dashed border-[#D79B01] text-[#064E3B] hover:bg-[#FCF1D0]/40 transition-colors"
+                        className="px-2.5 py-1 rounded-lg text-[10px] font-semibold tracking-wider border border-dashed border-[#D79B01] text-[#064E3B] hover:bg-[#F2DEAA]/40 transition-colors"
                       >
                         {c.code}
                       </button>
@@ -1252,7 +1256,7 @@ export default function Checkout() {
               </div>
 
               {/* Safe Delivery Statement (Required) */}
-              <div className="p-3.5 rounded-xl bg-[#FCF1D0]/50 border border-[#F5DF92]/50 text-xs text-[#064E3B] flex items-start gap-2.5">
+              <div className="p-3.5 rounded-xl bg-[#F2DEAA]/50 border border-[#E8C96C]/50 text-xs text-[#064E3B] flex items-start gap-2.5">
                 <span className="text-base leading-none">🛡️</span>
                 <p className="leading-relaxed">
                   <strong>“Your jewellery is carefully packed for a safe delivery.”</strong>
@@ -1271,13 +1275,13 @@ export default function Checkout() {
                 className="w-full py-4 rounded-full font-bold text-sm tracking-wider uppercase transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.98] disabled:opacity-60 flex items-center justify-center gap-2"
                 style={{
                   backgroundColor: "#075642",
-                  color: "#FCF1D0",
-                  border: "1px solid #F5D982",
+                  color: "#F2DEAA",
+                  border: "1px solid #E8C96C",
                 }}
               >
                 {isSubmitting ? (
                   <>
-                    <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-[#FCF1D0]" fill="none" viewBox="0 0 24 24">
+                    <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-[#F2DEAA]" fill="none" viewBox="0 0 24 24">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
                     </svg>
@@ -1286,7 +1290,7 @@ export default function Checkout() {
                 ) : (
                   <>
                     <span>PLACE ORDER SECURELY</span>
-                    <span className="text-[#F5D982]">✦ ₹{finalTotal.toLocaleString()}</span>
+                    <span className="text-[#E8C96C]">✦ ₹{finalTotal.toLocaleString()}</span>
                   </>
                 )}
               </button>

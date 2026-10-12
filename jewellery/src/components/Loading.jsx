@@ -4,9 +4,9 @@
       <div className="flex flex-col items-center gap-4">
         <div
           className="w-10 h-10 rounded-full border-4 border-t-transparent animate-spin"
-          style={{ borderColor: "rgba(245,223,146,0.3)", borderTopColor: "#F5DF92" }}
+          style={{ borderColor: "rgba(232, 201, 108,0.3)", borderTopColor: "#E8C96C" }}
         />
-        <p className="text-sm tracking-widest" style={{ color: "#F5DF92" }}>LOADING…</p>
+        <p className="text-sm tracking-widest" style={{ color: "#E8C96C" }}>LOADING…</p>
       </div>
     </div>
   );
